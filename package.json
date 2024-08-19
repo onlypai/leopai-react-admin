@@ -8,7 +8,8 @@
     "build": "tsc -b && vite build",
     "lint": "eslint .",
     "prettier": "prettier --write .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "prepare": "husky"
   },
   "dependencies": {
     "react": "^18.3.1",
@@ -28,6 +29,8 @@
     "eslint-plugin-react-hooks": "5.1.0-rc-fb9a90fa48-20240614",
     "eslint-plugin-react-refresh": "^0.4.9",
     "globals": "^15.9.0",
+    "husky": "^9.1.4",
+    "lint-staged": "^15.2.9",
     "prettier": "^3.3.3",
     "typescript": "^5.5.3",
     "typescript-eslint": "^8.0.1",
