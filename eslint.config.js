@@ -67,6 +67,7 @@ export default tsEslint.config(
       ...react.configs['jsx-runtime'].rules,
       'react-refresh/only-export-components': ['warn', { allowConstantExport: true }],
       'react/react-in-jsx-scope': 'off',
+      'react/display-name': 'off',
       'prettier/prettier': [
         'warn',
         {},
