@@ -2,6 +2,7 @@ import { defineConfig } from 'vite';
 import { createSvgIconsPlugin } from 'vite-plugin-svg-icons';
 import react from '@vitejs/plugin-react';
 import { resolve } from 'path'; //3.1.x不支持commonJS
+import { fileURLToPath } from 'url';
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -12,6 +13,12 @@ export default defineConfig({
       symbolId: 'icon-[dir]-[name]',
     }),
   ],
+  resolve: {
+    alias: {
+      // 或者使用vite-tsconfig-paths插件
+      '@': fileURLToPath(new URL('./src', import.meta.url)),
+    },
+  },
   server: {
     open: true,
     host: true,
