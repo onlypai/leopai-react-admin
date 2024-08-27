@@ -1,11 +1,11 @@
-import { PermissionType } from '#/enum';
+import { EPermission } from './enum';
 
 export interface Permission {
   id: string;
   parentId: string;
   name: string;
   label: string;
-  type: PermissionType;
+  type: EPermission;
   route: string;
   icon?: string;
   component?: string;
