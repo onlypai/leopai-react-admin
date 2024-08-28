@@ -1,3 +1,3 @@
 {
-  "**/*.{js,jsx,ts,tsx}": ["pnpm prettier", "pnpm lint"]
+  "**/*.{ts,tsx,js,jsx}": ["pnpm prettier", "pnpm lint"]
 }

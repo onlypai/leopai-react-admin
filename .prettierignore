@@ -9,9 +9,9 @@ node_modules
 **/*.toml
 **/*.sh
 
-.vscode
 /dist/*
 /public/*
+.vscode
 .husky
 .local
 Dockerfile

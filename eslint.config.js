@@ -69,6 +69,7 @@ export default tsEslint.config(
       'react/react-in-jsx-scope': 'off',
       'react/display-name': 'off',
       '@typescript-eslint/no-explicit-any': 'off',
+      '@typescript-eslint/ban-ts-comment': 'off',
       'prettier/prettier': [
         'warn',
         {},

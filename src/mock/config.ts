@@ -8,7 +8,7 @@ export const USERS = [
     avatar: faker.image.avatarGitHub(),
     createdAt: faker.date.anytime(),
     password: 'admin123456',
-    //   permissions: ADMIN_ROLE.permission,
+    permissions: [],
   },
   {
     id: '054490d2-eafa-44b0-b3fa-0f9441c411b9',
@@ -17,6 +17,6 @@ export const USERS = [
     email: faker.internet.email(),
     avatar: faker.image.avatarGitHub(),
     createdAt: faker.date.anytime(),
-    //   permissions: TEST_ROLE.permission,
+    permissions: [],
   },
 ];

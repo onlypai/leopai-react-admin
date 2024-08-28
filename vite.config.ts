@@ -18,6 +18,7 @@ export default defineConfig({
       // 或者使用vite-tsconfig-paths插件
       '@': fileURLToPath(new URL('./src', import.meta.url)),
     },
+    extensions: ['.ts', '.tsx', '.js', '.jsx', '.css', '.d.ts'],
   },
   server: {
     open: true,
