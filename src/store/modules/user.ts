@@ -5,7 +5,7 @@ import { Account, loginResult, UserInfo } from '@/service/login/types';
 import localCache from '@/utils/localCache';
 
 import type { PayloadAction } from '@reduxjs/toolkit';
-import { EStorage } from '@/types/enum';
+import { EStorage } from '@/enum';
 
 export interface IToken {
   accessToken?: string;

@@ -8,7 +8,7 @@ const routes = [
   },
   {
     path: '/login',
-    Component: lazy(() => import('@/views/Login')),
+    Component: lazy(() => import('@/views/login')),
   },
 ];
 const router = createBrowserRouter(routes as unknown as RouteObject[]);

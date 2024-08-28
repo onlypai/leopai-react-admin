@@ -6,7 +6,7 @@ import { useAppDispatch, useAppSelector } from '@/hooks/redux';
 import { loginThunk } from '@/store/modules/user';
 import { shallowEqual } from 'react-redux';
 import localCache from '@/utils/localCache';
-import { EStorage } from '@/types/enum';
+import { EStorage } from '@/enum';
 
 interface IForm {
   username: string;

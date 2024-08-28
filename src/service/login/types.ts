@@ -1,4 +1,4 @@
-import { Permission } from '@/types/router';
+import { Permission } from '@/router/types';
 
 export enum UserApi {
   Login = '/login',

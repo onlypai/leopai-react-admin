@@ -1,4 +1,38 @@
 import { faker } from '@faker-js/faker';
+import { EPermission } from '@/enum';
+
+const PERMISSIONS = [
+  //首页
+  {
+    id: '6440331230149425',
+    label: '首页',
+    parentId: '',
+    type: EPermission.MENU,
+    route: 'dashboard',
+    icon: 'mingcute:home-3-fill',
+    component: '/dashboard/index.tsx',
+  },
+  //测试页面
+  {
+    id: '3380918801154644',
+    label: 'test',
+    parentId: '',
+    type: EPermission.CATALOGUE,
+    route: 'test',
+    icon: 'codicon:copilot',
+    children: [
+      {
+        id: '8551082552692133',
+        label: 'testChild',
+        parentId: '3380918801154644',
+        type: EPermission.MENU,
+        route: 'testChild',
+        icon: 'codicon:bracket-error',
+        component: '/test/testChild/index.tsx',
+      },
+    ],
+  },
+];
 
 export const USERS = [
   {
@@ -8,15 +42,6 @@ export const USERS = [
     avatar: faker.image.avatarGitHub(),
     createdAt: faker.date.anytime(),
     password: 'admin123456',
-    permissions: [],
-  },
-  {
-    id: '054490d2-eafa-44b0-b3fa-0f9441c411b9',
-    username: 'test',
-    password: 'test123456',
-    email: faker.internet.email(),
-    avatar: faker.image.avatarGitHub(),
-    createdAt: faker.date.anytime(),
-    permissions: [],
+    permissions: PERMISSIONS,
   },
 ];

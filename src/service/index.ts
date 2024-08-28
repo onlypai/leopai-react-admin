@@ -1,7 +1,7 @@
 import { message as Message } from 'antd';
 import axios, { AxiosRequestConfig, AxiosError, AxiosResponse } from 'axios';
 
-import { EResult } from '@/types/enum';
+import { EResult } from '@/enum';
 interface UsualResult<T = any> {
   status: number;
   message: string;
