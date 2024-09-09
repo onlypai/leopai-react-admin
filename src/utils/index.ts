@@ -1,3 +1,5 @@
+import { AppRouteObject } from '@/router/types';
+
 /**
  * 扁平化数组
  * @param array
@@ -16,3 +18,19 @@ export function flattenTree(array: any[]) {
   _recursion(array);
   return flatArray;
 }
+
+/**
+ * 菜单过滤
+ * @param items 菜单数据
+ * @returns
+ */
+export const menuFilter = (items: AppRouteObject[]) => {
+  return items.filter((item) => {
+    // 去除子路由首项 {index: true, element: {…}}
+    const show = item.meta?.key;
+    if (show && item.children) {
+      item.children = menuFilter(item.children);
+    }
+    return show;
+  });
+};
