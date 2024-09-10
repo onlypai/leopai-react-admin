@@ -1,9 +1,10 @@
 import { configureStore } from '@reduxjs/toolkit';
 import user from './modules/user';
 import permissions from './modules/permissions';
+import settings from './modules/settings';
 
 const store = configureStore({
-  reducer: { user, permissions },
+  reducer: { user, permissions, settings },
 });
 
 export default store;

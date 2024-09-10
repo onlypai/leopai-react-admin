@@ -111,13 +111,13 @@ function formatPermissionsToRoutes(permissions: Permission[]) {
 }
 
 //hooks: 获取权限路由
-export function usePermissionRoutes(): AppRouteObject[] {
+export const usePermissionRoutes = (): AppRouteObject[] => {
   const { permissions } = useAppSelector((state) => state.permissions, shallowEqual);
   return useMemo(() => formatPermissionsToRoutes(permissions), [permissions]);
-}
+};
 
 //hooks: 获取默认展示路由
-export function useDefaultDisplayPath(): string {
+export const useDefaultDisplayPath = (): string => {
   const filterRoutes = menuFilter(usePermissionRoutes());
   const _recursion = (route: AppRouteObject): string => {
     if (route.children && route.children.length > 0) {
@@ -127,4 +127,4 @@ export function useDefaultDisplayPath(): string {
     }
   };
   return !filterRoutes.length ? '' : _recursion(filterRoutes[0]);
-}
+};
