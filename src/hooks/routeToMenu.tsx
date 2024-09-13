@@ -3,12 +3,14 @@ import Iconify from '@/components/icons/Iconify';
 
 import { AppRouteObject } from '@/router/types';
 import type { MenuProps } from 'antd';
+import { useThemeToken } from './themeToken';
 
 export type MenuItem = Required<MenuProps>['items'][number] & {
   children?: MenuItem[];
 };
 
 export function useRouteToMenu() {
+  const { colorTextTertiary } = useThemeToken();
   const routeToMenuFn = useCallback((items: AppRouteObject[]) => {
     return items.map((item) => {
       const { meta, children } = item;
@@ -20,7 +22,7 @@ export function useRouteToMenu() {
       const icon = meta?.icon;
       if (icon) {
         if (typeof icon === 'string') {
-          menuItem.icon = <Iconify icon={icon} size={24} className="ant-menu-item-icon" />;
+          menuItem.icon = <Iconify icon={icon} size={22} style={{ color: colorTextTertiary }} />;
         } else {
           menuItem.icon = icon;
         }

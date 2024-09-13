@@ -17,7 +17,7 @@ import 'virtual:svg-icons-register';
 createRoot(document.getElementById('root') as HTMLElement).render(
   <Provider store={store}>
     <HelmetProvider>
-      <Suspense fallback={<div>loading...</div>}>
+      <Suspense fallback={<div>loading</div>}>
         <App />
       </Suspense>
     </HelmetProvider>

@@ -8,9 +8,9 @@ const PERMISSIONS = [
     label: '首页',
     parentId: '',
     type: EPermission.MENU,
-    route: 'dashboard',
-    icon: 'mingcute:home-3-fill',
-    component: '/dashboard/index.tsx',
+    route: 'home',
+    icon: 'majesticons:home',
+    component: '/home/index.tsx',
   },
   //测试页面
   {

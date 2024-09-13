@@ -35,3 +35,11 @@ export enum ELayout {
   Horizontal = 'horizontal',
   Mini = 'mini',
 }
+
+export enum ESize {
+  ASIDE_WIDTH = 280,
+  ASIDE_COLLAPSED_WIDTH = 90,
+  HEADER_HEIGHT = 75, //header
+  ASIDE_HORIZONTAL_HEIGHT = 48, //horizontal sider
+  LABEL_TABS_HEIGHT = 32, //tab
+}

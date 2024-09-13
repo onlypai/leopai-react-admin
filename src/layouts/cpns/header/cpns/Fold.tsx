@@ -1,7 +1,8 @@
 import { memo, useEffect, useState } from 'react';
 import { shallowEqual } from 'react-redux';
-import { MenuUnfoldOutlined, MenuFoldOutlined } from '@ant-design/icons';
 
+import IButton from '@/components/IButton';
+import Iconify from '@/components/icons/Iconify';
 import { useAppDispatch, useAppSelector } from '@/hooks/redux';
 import { useThemeToken } from '@/hooks/themeToken';
 import { setSettings } from '@/store/modules/settings';
@@ -33,18 +34,19 @@ const Fold: React.FC = memo(() => {
     setCollapsed(!collapsed);
   };
   return (
-    <button
+    <IButton
       onClick={toggleCollapsed}
       style={{
         color: colorTextSecondary,
-        // borderColor: colorTextBase,
-        fontSize: 16,
-        margin: '0 20px',
-        cursor: 'pointer',
       }}
+      className="mx-5"
     >
-      {collapsed ? <MenuUnfoldOutlined size={20} /> : <MenuFoldOutlined size={20} />}
-    </button>
+      {collapsed ? (
+        <Iconify icon="ri:menu-unfold-line" size={20} />
+      ) : (
+        <Iconify icon="ri:menu-fold-line" size={20} />
+      )}
+    </IButton>
   );
 });
 

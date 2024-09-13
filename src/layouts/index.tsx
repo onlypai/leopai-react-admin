@@ -1,60 +1,52 @@
-import { Outlet } from 'react-router-dom';
 import { memo } from 'react';
 import { Layout } from 'antd';
+import { shallowEqual } from 'react-redux';
 
-const { Header, Footer, Sider, Content } = Layout;
+import Nprogress from '@/components/Nprogress';
+import Main from './cpns/main';
+import Header from './cpns/header';
+import AsideVertical from './cpns/aside/AsideVertical';
 
-const headerStyle: React.CSSProperties = {
-  textAlign: 'center',
-  color: '#fff',
-  height: 64,
-  paddingInline: 48,
-  lineHeight: '64px',
-  backgroundColor: '#4096ff',
-};
+import { useAppSelector } from '@/hooks/redux';
+import { useThemeToken } from '@/hooks/themeToken';
 
-const contentStyle: React.CSSProperties = {
-  textAlign: 'center',
-  minHeight: 120,
-  lineHeight: '120px',
-  color: '#fff',
-  backgroundColor: '#0958d9',
-};
+import { ELayout, ESize } from '@/enum';
 
-const siderStyle: React.CSSProperties = {
-  textAlign: 'center',
-  lineHeight: '120px',
-  color: '#fff',
-  backgroundColor: '#1677ff',
-};
-
-const footerStyle: React.CSSProperties = {
-  textAlign: 'center',
-  color: '#fff',
-  backgroundColor: '#4096ff',
-};
-
-const layoutStyle = {
-  borderRadius: 8,
-  overflow: 'hidden',
-  width: 'calc(50% - 8px)',
-  maxWidth: 'calc(50% - 8px)',
-};
+const { Sider } = Layout;
 
 const index = memo(() => {
+  const { layout, labelTab } = useAppSelector((state) => state.settings, shallowEqual);
+  const { colorBorderSecondary, colorBgElevated } = useThemeToken(); //colorBgElevated背景色
+  const { ASIDE_WIDTH, ASIDE_COLLAPSED_WIDTH } = ESize;
   return (
-    <Layout style={layoutStyle}>
-      <Sider width="25%" style={siderStyle}>
-        Sider
-      </Sider>
-      <Layout>
-        <Header style={headerStyle}>Header</Header>
-        <Content style={contentStyle}>
-          <Outlet />
-        </Content>
-        <Footer style={footerStyle}>Footer</Footer>
-      </Layout>
-    </Layout>
+    <>
+      <Nprogress />
+      <div>
+        <Layout className={`h-screen overflow-hidden`}>
+          <Sider
+            style={{
+              borderRight: `1px solid ${colorBorderSecondary}`,
+              background: colorBgElevated,
+            }}
+            className="hidden md:block"
+            width={ASIDE_WIDTH}
+            collapsedWidth={ASIDE_COLLAPSED_WIDTH}
+            trigger={null}
+            collapsible
+            collapsed={layout === ELayout.Mini}
+            theme="light"
+          >
+            <AsideVertical />
+          </Sider>
+
+          <Layout style={{ background: colorBgElevated }}>
+            <Header />
+            {labelTab ? <div>tabs</div> : null}
+            <Main />
+          </Layout>
+        </Layout>
+      </div>
+    </>
   );
 });
 

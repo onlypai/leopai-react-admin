@@ -1,4 +1,4 @@
-import { memo } from 'react';
+// import { memo } from 'react';
 import {
   createBrowserRouter,
   RouterProvider,
@@ -16,10 +16,11 @@ import ErrBoundary from './ErrBoundary';
 
 import { AppRouteObject } from './types';
 
+const Login = lazy(() => import('@/views/login'));
 const Page404 = lazy(() => import('@/views/error/404'));
 const Page403 = lazy(() => import('@/views/error/403'));
 
-const index = memo(() => {
+export default function Router() {
   //路由格式化
   const permissionRoutes = usePermissionRoutes();
   const defaultPath = useDefaultDisplayPath();
@@ -41,7 +42,7 @@ const index = memo(() => {
     //login routing
     {
       path: '/login',
-      Component: lazy(() => import('@/views/login')),
+      element: <Login />,
     },
     //error routing
     {
@@ -63,6 +64,4 @@ const index = memo(() => {
   ];
   const router = createBrowserRouter(routes as unknown as RouteObject[]);
   return <RouterProvider router={router} />;
-});
-
-export default index;
+}

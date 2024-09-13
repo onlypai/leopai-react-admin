@@ -5,13 +5,14 @@ import AntdTheme from '@/components/AntdTheme';
 import Router from './router';
 
 import Logo from './assets/logo.svg';
+import { NAME } from './utils/config';
 
 function App() {
   return (
     <AntdTheme>
       <AntdApp>
         <Helmet>
-          <title>Leopai React Admin</title>
+          <title>{NAME}</title>
           <link rel="icon" type="image/svg+xml" href={Logo} />
         </Helmet>
         <Router />

@@ -1,7 +1,20 @@
-export const ASIDE_WIDTH = 260;
-export const ASIDE_COLLAPSED_WIDTH = 90;
-
-export const HEADER_HEIGHT = 80; //header
-export const OFFSET_HEADER_HEIGHT = 64; //scroll header
-export const ASIDE_HORIZONTAL_HEIGHT = 48; //horizontal sider
-export const MULTI_TABS_HEIGHT = 32; //tab
+export const NAME = 'Leopai React Admin';
+export const GITHUB_URL = 'https://github.com/onlypai/leopai-react-admin';
+export const LINK_URLS = [
+  {
+    name: 'React',
+    url: 'https://react.docschina.org/',
+  },
+  {
+    name: 'TypeScript',
+    url: 'https://www.typescriptlang.org/',
+  },
+  {
+    name: 'Vite',
+    url: 'https://vitejs.cn/vite3-cn/',
+  },
+  {
+    name: 'Tailwind CSS',
+    url: 'https://tailwindcss.com/',
+  },
+];

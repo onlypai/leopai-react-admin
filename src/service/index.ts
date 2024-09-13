@@ -13,18 +13,15 @@ const service = () => {
   const instance = axios.create({
     baseURL: import.meta.env.VITE_APP_BASEURL,
     timeout: import.meta.env.VITE_APP_TIMEOUT,
-    headers: { 'Content-Type': 'application/json;charset=utf-8' },
   });
 
   // 请求拦截
   instance.interceptors.request.use(
     (config) => {
-      // 在请求被发送之前做些什么
-      config.headers.Authorization = 'Bearer Token';
+      config.headers['Authorization'] = 'Bearer Token';
       return config;
     },
     (error) => {
-      // 请求错误时做些什么
       return Promise.reject(error);
     },
   );

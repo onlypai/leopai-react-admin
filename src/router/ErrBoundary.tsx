@@ -16,8 +16,6 @@ const ErrBoundary = memo(({ children }: Props) => {
   const navigate = useNavigate();
 
   const redirect = useCallback(() => {
-    console.log(navigate);
-
     if (!token.accessToken) {
       navigate('/login', { replace: true });
     }

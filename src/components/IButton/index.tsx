@@ -9,11 +9,11 @@ type Props = {
   onClick?: React.MouseEventHandler<HTMLButtonElement>;
 };
 
-const IButton = memo(({ children, style = {}, className = '', onClick }: Props) => {
+const index = memo(({ children, style = {}, className = '', onClick }: Props) => {
   return (
     <button
       style={style}
-      className={`flex-cc hover:bg-[#66737d15] rounded-full p-2.5 ${className}`}
+      className={`flex-cc hover:scale-150 duration-200 rounded-full p-2.5 ${className}`}
       onClick={onClick}
     >
       {children}
@@ -21,4 +21,4 @@ const IButton = memo(({ children, style = {}, className = '', onClick }: Props) 
   );
 });
 
-export default IButton;
+export default index;

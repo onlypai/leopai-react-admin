@@ -7,17 +7,21 @@ import { useAppSelector } from '@/hooks/redux';
 
 import Fold from './cpns/Fold';
 import Logo from '@/components/Logo';
+import Github from './cpns/Github';
+import Link from './cpns/Link';
+import AccountDropdown from './cpns/AccountDropdown';
 
 const index = memo(() => {
   const { layout } = useAppSelector((state) => state.settings, shallowEqual);
-  const { colorBorder } = useThemeToken();
+  const { colorBorderSecondary } = useThemeToken();
   const { HEADER_HEIGHT } = ESize;
 
   const isHorizontal = useMemo(() => layout === ELayout.Horizontal, [layout]);
 
   const headerStyle: CSSProperties = {
     height: `${HEADER_HEIGHT}px`,
-    borderBottom: layout === ELayout.Horizontal ? `1px dashed ${colorBorder}` : 'none',
+    // borderBottom: layout === ELayout.Horizontal ? `1px solid ${colorBorderSecondary}` : 'none',
+    borderBottom: `1px solid ${colorBorderSecondary}`,
   };
   return (
     <header>
@@ -33,7 +37,11 @@ const index = memo(() => {
             {!isHorizontal ? <Fold /> : <Logo />}
           </div>
         </div>
-        <div className="flex items-center "></div>
+        <div className="flex items-center ">
+          <Github />
+          <Link />
+          <AccountDropdown />
+        </div>
       </div>
     </header>
   );
