@@ -1,4 +1,4 @@
-import { Dropdown, message } from 'antd';
+import { App, Dropdown } from 'antd';
 import { memo } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { shallowEqual } from 'react-redux';
@@ -14,6 +14,7 @@ import type { MenuProps } from 'antd';
 const Avatar = memo(() => {
   const navigate = useNavigate();
   const dispatch = useAppDispatch();
+  const { message } = App.useApp();
   const { userInfo } = useAppSelector((state) => state.user, shallowEqual);
 
   const logout = async () => {
@@ -22,7 +23,6 @@ const Avatar = memo(() => {
     navigate('/login', { replace: true });
   };
   const items: MenuProps['items'] = [
-    // { type: 'divider' },
     {
       label: <button>退出</button>,
       key: '0',

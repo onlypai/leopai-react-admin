@@ -1,5 +1,5 @@
 import { memo, useEffect } from 'react';
-import { Button, Checkbox, Form, Input, message } from 'antd';
+import { Button, Checkbox, Form, Input, App } from 'antd';
 import { useNavigate } from 'react-router-dom';
 
 import { useAppDispatch, useAppSelector } from '@/hooks/redux';
@@ -23,7 +23,8 @@ const form: IForm = {
   remember: true,
 };
 
-const App = memo(() => {
+const index = memo(() => {
+  const { message } = App.useApp();
   const navigate = useNavigate();
   const dispatch = useAppDispatch();
   const { token } = useAppSelector((state) => state.user, shallowEqual);
@@ -101,4 +102,4 @@ const App = memo(() => {
   );
 });
 
-export default App;
+export default index;

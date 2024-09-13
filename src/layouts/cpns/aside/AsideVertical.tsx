@@ -18,6 +18,10 @@ const AntdWrapped = styled.span`
   .ant-menu-sub.ant-menu-inline {
     background: none !important;
   }
+  .ant-menu-inline-collapsed > .ant-menu-item,
+  .ant-menu-inline-collapsed > .ant-menu-submenu > .ant-menu-submenu-title {
+    padding: 0 24px;
+  }
 `;
 
 const AsideVertical = memo(() => {
