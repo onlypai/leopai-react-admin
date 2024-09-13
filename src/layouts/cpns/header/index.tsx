@@ -9,6 +9,7 @@ import Fold from './cpns/Fold';
 import Logo from '@/components/Logo';
 import Github from './cpns/Github';
 import Link from './cpns/Link';
+import Lang from './cpns/Lang';
 import AccountDropdown from './cpns/AccountDropdown';
 
 const index = memo(() => {
@@ -39,6 +40,7 @@ const index = memo(() => {
         </div>
         <div className="flex items-center ">
           <Github />
+          <Lang />
           <Link />
           <AccountDropdown />
         </div>

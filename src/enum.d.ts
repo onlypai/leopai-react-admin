@@ -15,7 +15,7 @@ export enum EStorage {
   Token = 'token',
   Permissions = 'permissions',
   Settings = 'settings',
-  // I18N = 'i18nextLng',
+  I18N = 'i18nextLng',
 }
 
 export enum ETheme {
@@ -42,4 +42,8 @@ export enum ESize {
   HEADER_HEIGHT = 75, //header
   ASIDE_HORIZONTAL_HEIGHT = 48, //horizontal sider
   LABEL_TABS_HEIGHT = 32, //tab
+}
+export enum ELanguage {
+  en_US = 'en_US',
+  zh_CN = 'zh_CN',
 }

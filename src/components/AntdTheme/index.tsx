@@ -1,17 +1,36 @@
 import { memo } from 'react';
-import { ConfigProvider, theme as antdTheme } from 'antd';
+import { ConfigProvider, theme as antdTheme, ThemeConfig } from 'antd';
 import { StyleProvider } from '@ant-design/cssinjs';
 
 import { useAppSelector } from '@/hooks/redux';
-import { colorPresets } from './config';
+import { useI18n } from '@/hooks/i18n';
 
-import { ETheme } from '@/enum';
+import { ETheme, EThemeColor } from '@/enum';
+
+// Component Token
+const customComponent: ThemeConfig['components'] = {
+  Menu: {
+    itemColor: '#575757',
+  },
+};
+// themeColor
+const colorPresets: {
+  [k in EThemeColor]: string;
+} = {
+  c1: '#ff235e',
+  c2: '#1677ff',
+  c3: '#42b883',
+  // #18a058绿色
+  c4: '#ff3d68',
+  c5: '#fda92d',
+  c6: '#6730be',
+};
 
 type Props = {
   children: React.ReactNode;
 };
-
 const index = memo(({ children }: Props) => {
+  const { antdLocale } = useI18n();
   const { theme, themeColor } = useAppSelector((state) => state.settings);
   const algorithm = theme === ETheme.Light ? antdTheme.defaultAlgorithm : antdTheme.darkAlgorithm;
   return (
@@ -22,7 +41,9 @@ const index = memo(({ children }: Props) => {
         token: {
           colorPrimary: colorPresets[themeColor],
         },
+        components: { ...customComponent },
       }}
+      locale={antdLocale}
     >
       {/* 取消降权: https://ant.design/docs/react/compatible-style-cn */}
       <StyleProvider hashPriority="high">{children}</StyleProvider>

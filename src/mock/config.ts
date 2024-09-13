@@ -9,7 +9,7 @@ const PERMISSIONS = [
     parentId: '',
     type: EPermission.MENU,
     route: 'home',
-    icon: 'majesticons:home',
+    icon: 'ion:home',
     component: '/home/index.tsx',
   },
   //测试页面

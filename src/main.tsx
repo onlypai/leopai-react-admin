@@ -14,6 +14,9 @@ import './style/base';
 //vite-plugin-svg-icons
 import 'virtual:svg-icons-register';
 
+// i18n
+import './i18n';
+
 createRoot(document.getElementById('root') as HTMLElement).render(
   <Provider store={store}>
     <HelmetProvider>

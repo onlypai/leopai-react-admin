@@ -42,9 +42,9 @@ const Fold: React.FC = memo(() => {
       className="mx-5"
     >
       {collapsed ? (
-        <Iconify icon="ri:menu-unfold-line" size={20} />
+        <Iconify icon="line-md:menu-unfold-right" size={20} />
       ) : (
-        <Iconify icon="ri:menu-fold-line" size={20} />
+        <Iconify icon="line-md:menu-unfold-left" size={20} />
       )}
     </IButton>
   );

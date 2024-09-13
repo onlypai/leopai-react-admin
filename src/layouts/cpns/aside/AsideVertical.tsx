@@ -26,7 +26,7 @@ const AntdWrapped = styled.span`
 
 const AsideVertical = memo(() => {
   const { layout } = useAppSelector((state) => state.settings);
-  const { colorPrimary, colorBgElevated } = useThemeToken();
+  const { colorPrimary } = useThemeToken();
   const permissionRoutes = usePermissionRoutes();
   const { HEADER_HEIGHT } = ESize;
 
@@ -58,20 +58,14 @@ const AsideVertical = memo(() => {
   };
   //md 尺寸以上显示
   return (
-    <div
-      // layout === ELayout.Vertical ? `${ASIDE_WIDTH}px` : `${ASIDE_COLLAPSED_WIDTH}px`,
-      className="hidden w-full h-full md:block"
-    >
+    <div className="hidden w-full h-full md:block">
       <div className="flex items-center justify-center" style={{ height: HEADER_HEIGHT + 'px' }}>
         <Logo />
-        {/* {layout === ELayout.Vertical && (
+        {layout === ELayout.Vertical && (
           <div className="text-xl ml-2 font-bold" style={{ color: colorPrimary }}>
             {NAME}
           </div>
-        )} */}
-        <div className="text-xl ml-2 font-bold w-fit" style={{ color: colorPrimary }}>
-          {layout === ELayout.Vertical ? NAME : ''}
-        </div>
+        )}
       </div>
       <div className="overflow-y-hidden" style={{ height: `calc(100vh - ${HEADER_HEIGHT}px)` }}>
         <AntdWrapped>
@@ -93,7 +87,6 @@ const AsideVertical = memo(() => {
             mode="inline"
             items={menuList}
             style={{
-              backgroundColor: colorBgElevated,
               borderInlineEnd: 'none', //去除右边边框
             }}
           />

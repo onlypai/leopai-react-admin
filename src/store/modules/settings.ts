@@ -25,7 +25,7 @@ const settingsSlice = createSlice({
   initialState: (): ISettings => ({
     theme: theme || ETheme.Light, //主题
     layout: layout || ELayout.Vertical, //布局
-    themeColor: themeColor || EThemeColor.C3, //主题色
+    themeColor: themeColor || EThemeColor.C1, //主题色
     zoom: zoom ?? false, //内容区域宽度缩放
     breadCrumb: breadCrumb ?? true, //面包屑
     labelTab: labelTab ?? true, //标签选项卡
