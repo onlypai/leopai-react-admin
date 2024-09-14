@@ -1,8 +1,17 @@
 {
   "hello_world": "你好 世界",
-  "menu": {},
+  "menu": {
+    "home": "首页"
+  },
   "common": {},
   "login": {
-    "login": "登录"
+    "login": "登录",
+    "logout": "退出",
+    "username": "用户名",
+    "password": "密码",
+    "remember": "记住我",
+    "other_login": "其他登录方式",
+
+    "logout_success": "退出成功"
   }
 }

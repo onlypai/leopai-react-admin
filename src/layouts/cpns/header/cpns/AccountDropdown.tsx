@@ -10,21 +10,23 @@ import { useAppDispatch, useAppSelector } from '@/hooks/redux';
 import { logoutAction } from '@/store/modules/user';
 
 import type { MenuProps } from 'antd';
+import { useTranslation } from 'react-i18next';
 
 const Avatar = memo(() => {
   const navigate = useNavigate();
+  const { t } = useTranslation();
   const dispatch = useAppDispatch();
   const { message } = App.useApp();
   const { userInfo } = useAppSelector((state) => state.user, shallowEqual);
 
   const logout = async () => {
     dispatch(logoutAction());
-    message.success('退出成功');
+    message.success(t('login.logout_success'));
     navigate('/login', { replace: true });
   };
   const items: MenuProps['items'] = [
     {
-      label: <button>退出</button>,
+      label: <button>{t('login.logout')}</button>,
       key: '0',
       onClick: logout,
     },

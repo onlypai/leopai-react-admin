@@ -20,7 +20,10 @@ const AntdWrapped = styled.span`
   }
   .ant-menu-inline-collapsed > .ant-menu-item,
   .ant-menu-inline-collapsed > .ant-menu-submenu > .ant-menu-submenu-title {
-    padding: 0 24px;
+    padding: 0 10px;
+  }
+  .ant-menu-root {
+    padding: 0 20px !important;
   }
 `;
 

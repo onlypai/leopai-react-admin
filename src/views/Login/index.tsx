@@ -2,11 +2,17 @@ import { memo, useEffect } from 'react';
 import { Button, Checkbox, Form, Input, App } from 'antd';
 import { useNavigate } from 'react-router-dom';
 
+import SvgIcon from '@/components/icons/SvgIcon';
+import Iconify from '@/components/icons/Iconify';
+
 import { useAppDispatch, useAppSelector } from '@/hooks/redux';
+import { useThemeToken } from '@/hooks/themeToken';
 import { loginThunk } from '@/store/modules/user';
 import { shallowEqual } from 'react-redux';
 import localCache from '@/utils/localCache';
 import { EStorage } from '@/enum';
+import { NAME } from '@/utils/config';
+import { useTranslation } from 'react-i18next';
 
 interface IForm {
   username: string;
@@ -25,8 +31,10 @@ const form: IForm = {
 
 const index = memo(() => {
   const { message } = App.useApp();
+  const { t } = useTranslation();
   const navigate = useNavigate();
   const dispatch = useAppDispatch();
+  const { colorPrimary, colorTextSecondary } = useThemeToken();
   const { token } = useAppSelector((state) => state.user, shallowEqual);
 
   useEffect(() => {
@@ -64,40 +72,65 @@ const index = memo(() => {
       console.log(error);
     }
   };
+
   return (
-    <div className="flex items-center justify-center w-screen h-screen">
-      <Form
-        className="w-96 !p-5 box-border"
-        name="login"
-        //labelCol 标签布局
-        labelCol={{ span: 0 }}
-        //输入控件设置布局样式
-        wrapperCol={{ span: 24 }}
-        initialValues={form}
-        onFinish={onFinish}
-        onFinishFailed={onFinishFailed}
-        autoComplete="off"
-      >
-        <div className="font-cursive flex items-center justify-center text-2xl h-16 mb-6">
-          Leopai Admin
+    <div className="flex-cc w-screen h-screen bg-[url('@/assets/images/loginBg.svg')] bg-cover bg-center">
+      <div className="flex w-2/3 h-5/6 rounded-[36px] overflow-hidden bg-[#ecfeffb0] backdrop-opacity-60">
+        <div className="flex-cc flex-col flex-1 h-full">
+          <Form
+            className="w-96 !p-5 box-border"
+            initialValues={form}
+            onFinish={onFinish}
+            onFinishFailed={onFinishFailed}
+            autoComplete="off"
+            layout="vertical"
+            size="large"
+          >
+            <div className="text-center">
+              <SvgIcon icon="logo" color={colorPrimary} size="5em"></SvgIcon>
+            </div>
+            <div className="flex-cc font-mono font-bold text-nowrap text-blue-900 text-4xl h-16 mb-6">
+              {NAME}
+            </div>
+            {/* <span className="text-gray-500 text-xs">admin admin123456</span> */}
+            <Form.Item
+              name="username"
+              label={<span className="text-blue-900 font-bold">{t('login.username')}</span>}
+              rules={[{ required: true, message: '请输入用户名' }]}
+            >
+              <Input placeholder="用户名" />
+            </Form.Item>
+            <Form.Item
+              name="password"
+              label={<span className="text-blue-900 font-bold">{t('login.password')}</span>}
+              rules={[{ required: true, message: '请输入密码' }]}
+            >
+              <Input.Password placeholder="密码" />
+            </Form.Item>
+            {/* valuePropName="checked" 子节点的值的属性，如 Switch 的是 'checked' */}
+            <Form.Item name="remember" valuePropName="checked">
+              <Checkbox className="text-blue-900">{t('login.remember')}</Checkbox>
+            </Form.Item>
+            <Form.Item>
+              <Button type="primary" htmlType="submit" className="w-full">
+                {t('login.login')}
+              </Button>
+            </Form.Item>
+          </Form>
+          <div className="text-center" style={{ color: colorTextSecondary }}>
+            {t('login.other_login')}
+          </div>
+          <div className="flex justify-around w-2/3 text-2xl mt-5 cursor-pointer">
+            <Iconify icon="carbon:logo-wechat" color="#07c160" />
+            <Iconify icon="carbon:logo-google" color="#2d7cee" />
+            <Iconify icon="ion:logo-github" />
+            <Iconify icon="carbon:logo-x" />
+          </div>
         </div>
-        <span className="text-gray-500 text-xs">admin admin123456</span>
-        <Form.Item name="username" rules={[{ required: true, message: '请输入用户名' }]}>
-          <Input placeholder="用户名" />
-        </Form.Item>
-        <Form.Item name="password" rules={[{ required: true, message: '请输入密码' }]}>
-          <Input.Password placeholder="密码" />
-        </Form.Item>
-        {/* valuePropName="checked" 子节点的值的属性，如 Switch 的是 'checked' */}
-        <Form.Item name="remember" valuePropName="checked">
-          <Checkbox className="text-gray-100">记住密码</Checkbox>
-        </Form.Item>
-        <Form.Item>
-          <Button type="primary" htmlType="submit" className="w-full">
-            登录
-          </Button>
-        </Form.Item>
-      </Form>
+        <div className="flex-cc flex-[1.5] h-full">
+          <SvgIcon icon="login2" size="50em" />
+        </div>
+      </div>
     </div>
   );
 });

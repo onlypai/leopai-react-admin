@@ -5,7 +5,7 @@ const PERMISSIONS = [
   //首页
   {
     id: '6440331230149425',
-    label: '首页',
+    label: 'menu.home',
     parentId: '',
     type: EPermission.MENU,
     route: 'home',

@@ -1,8 +1,17 @@
 {
   "hello_world": "Hello World",
-  "menu": {},
+  "menu": {
+    "home": "Home"
+  },
   "common": {},
   "login": {
-    "login": "Login"
+    "login": "Login",
+    "logout": "Logout",
+    "username": "Username",
+    "password": "Password",
+    "remember": "Remember Me",
+    "other_login": "Sign in with",
+
+    "logout_success": "Logout success"
   }
 }
