@@ -14,6 +14,10 @@ export const LINK_URLS = [
     url: 'https://vitejs.cn/vite3-cn/',
   },
   {
+    name: 'Ant Design',
+    url: 'https://ant.design/',
+  },
+  {
     name: 'Tailwind CSS',
     url: 'https://tailwindcss.com/',
   },

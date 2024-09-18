@@ -16,7 +16,7 @@ const github = memo(() => {
       }}
       onClick={() => window.open(GITHUB_URL, '_blank')}
     >
-      <Iconify size={20} icon="lucide:github"></Iconify>
+      <Iconify size={20} icon="akar-icons:github-fill"></Iconify>
     </IButton>
   );
 });

@@ -5,6 +5,7 @@ import { shallowEqual } from 'react-redux';
 import Nprogress from '@/components/Nprogress';
 import Main from './cpns/main';
 import Header from './cpns/header';
+import LabelTab from './cpns/labelTab';
 import AsideVertical from './cpns/aside/AsideVertical';
 
 import { useAppSelector } from '@/hooks/redux';
@@ -41,7 +42,7 @@ const index = memo(() => {
 
           <Layout style={{ background: colorBgElevated }}>
             <Header />
-            {labelTab ? <div>tabs</div> : null}
+            {labelTab ? <LabelTab /> : null}
             <Main />
           </Layout>
         </Layout>

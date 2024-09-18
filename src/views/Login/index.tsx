@@ -127,8 +127,8 @@ const index = memo(() => {
             <Iconify icon="carbon:logo-x" />
           </div>
         </div>
-        <div className="flex-cc flex-[1.5] h-full">
-          <SvgIcon icon="login2" size="50em" />
+        <div className="hidden xl:flex-cc flex-[1.5] h-full">
+          <SvgIcon icon="login2" size="95%" />
         </div>
       </div>
     </div>

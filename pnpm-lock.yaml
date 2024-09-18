@@ -53,6 +53,9 @@ dependencies:
   react-router-dom:
     specifier: ^6.26.1
     version: registry.npmmirror.com/react-router-dom@6.26.1(react-dom@18.3.1)(react@18.3.1)
+  screenfull:
+    specifier: ^6.0.2
+    version: registry.npmmirror.com/screenfull@6.0.2
   styled-components:
     specifier: ^6.1.12
     version: registry.npmmirror.com/styled-components@6.1.12(react-dom@18.3.1)(react@18.3.1)
@@ -7647,6 +7650,13 @@ packages:
     version: 0.23.2
     dependencies:
       loose-envify: registry.npmmirror.com/loose-envify@1.4.0
+    dev: false
+
+  registry.npmmirror.com/screenfull@6.0.2:
+    resolution: {integrity: sha512-AQdy8s4WhNvUZ6P8F6PB21tSPIYKniic+Ogx0AacBMjKP1GUHN2E9URxQHtCusiwxudnCKkdy4GrHXPPJSkCCw==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/screenfull/-/screenfull-6.0.2.tgz}
+    name: screenfull
+    version: 6.0.2
+    engines: {node: ^14.13.1 || >=16.0.0}
     dev: false
 
   registry.npmmirror.com/scroll-into-view-if-needed@3.1.0:

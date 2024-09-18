@@ -1,7 +1,7 @@
 import { memo, CSSProperties, useMemo } from 'react';
 import { shallowEqual } from 'react-redux';
 
-import { useThemeToken } from '@/hooks/themeToken';
+// import { useThemeToken } from '@/hooks/themeToken';
 import { ESize, ELayout } from '@/enum';
 import { useAppSelector } from '@/hooks/redux';
 
@@ -11,10 +11,12 @@ import Github from './cpns/Github';
 import Link from './cpns/Link';
 import Lang from './cpns/Lang';
 import AccountDropdown from './cpns/AccountDropdown';
+import BreadCrumb from './cpns/BreadCrumb';
+import ScreenFull from './cpns/ScreenFull';
 
 const index = memo(() => {
-  const { layout } = useAppSelector((state) => state.settings, shallowEqual);
-  const { colorBorderSecondary } = useThemeToken();
+  const { layout, breadCrumb } = useAppSelector((state) => state.settings, shallowEqual);
+  // const { colorBorderSecondary } = useThemeToken();
   const { HEADER_HEIGHT } = ESize;
 
   const isHorizontal = useMemo(() => layout === ELayout.Horizontal, [layout]);
@@ -22,7 +24,7 @@ const index = memo(() => {
   const headerStyle: CSSProperties = {
     height: `${HEADER_HEIGHT}px`,
     // borderBottom: layout === ELayout.Horizontal ? `1px solid ${colorBorderSecondary}` : 'none',
-    borderBottom: `1px solid ${colorBorderSecondary}`,
+    // borderBottom: `1px solid ${colorBorderSecondary}`,
   };
   return (
     <header>
@@ -37,9 +39,11 @@ const index = memo(() => {
           <div className={`${isHorizontal ? 'mr-6' : ''}`}>
             {!isHorizontal ? <Fold /> : <Logo />}
           </div>
+          {breadCrumb ? <BreadCrumb /> : null}
         </div>
         <div className="flex items-center ">
           <Github />
+          <ScreenFull />
           <Lang />
           <Link />
           <AccountDropdown />
