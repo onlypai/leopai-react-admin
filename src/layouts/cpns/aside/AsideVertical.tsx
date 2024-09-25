@@ -91,6 +91,7 @@ const AsideVertical = memo(() => {
             items={menuList}
             style={{
               borderInlineEnd: 'none', //去除右边边框
+              background: 'inherit',
             }}
           />
         </AntdWrapped>

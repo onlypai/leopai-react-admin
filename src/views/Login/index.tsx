@@ -128,7 +128,7 @@ const index = memo(() => {
           </div>
         </div>
         <div className="hidden xl:flex-cc flex-[1.5] h-full">
-          <SvgIcon icon="login2" size="95%" />
+          <SvgIcon icon="login" size="95%" />
         </div>
       </div>
     </div>

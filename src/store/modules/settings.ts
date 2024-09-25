@@ -10,14 +10,14 @@ export interface ISettings {
   themeColor: EThemeColor;
   zoom: boolean;
   breadCrumb: boolean;
-  labelTab: boolean;
+  tagsView: boolean;
 }
 //payload类型
 export interface payloadType {
   key: keyof ISettings;
   value: ISettings[keyof ISettings];
 }
-const { theme, layout, themeColor, zoom, breadCrumb, labelTab } =
+const { theme, layout, themeColor, zoom, breadCrumb, tagsView } =
   localCache.getCache<ISettings>(EStorage.Settings) || {};
 
 const settingsSlice = createSlice({
@@ -28,7 +28,7 @@ const settingsSlice = createSlice({
     themeColor: themeColor || EThemeColor.C1, //主题色
     zoom: zoom ?? false, //内容区域宽度缩放
     breadCrumb: breadCrumb ?? true, //面包屑
-    labelTab: labelTab ?? true, //标签选项卡
+    tagsView: tagsView ?? true, //标签选项卡
   }),
   reducers: {
     setSettings: (state, action: PayloadAction<payloadType>) => {

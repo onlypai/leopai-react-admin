@@ -9,7 +9,7 @@ import App from './App';
 import store from '@/store';
 import worder from '@/mock';
 
-import './style/base';
+import './style';
 
 //vite-plugin-svg-icons
 import 'virtual:svg-icons-register';

@@ -4,7 +4,6 @@ import { Dropdown } from 'antd';
 import Iconify from '@/components/icons/Iconify';
 import IButton from '@/components/IButton';
 
-import { useThemeToken } from '@/hooks/themeToken';
 import { LINK_URLS } from '@/utils/config';
 
 import type { MenuProps } from 'antd';
@@ -18,17 +17,11 @@ const items: MenuProps['items'] = LINK_URLS.map((e, i) => ({
   key: i.toString(),
 }));
 
-const github = memo(() => {
-  const { colorTextSecondary } = useThemeToken();
-
+const Link = memo(() => {
   return (
     <Dropdown menu={{ items }}>
       <span>
-        <IButton
-          style={{
-            color: colorTextSecondary,
-          }}
-        >
+        <IButton>
           <Iconify size={20} icon="fa6-solid:link"></Iconify>
         </IButton>
       </span>
@@ -36,4 +29,4 @@ const github = memo(() => {
   );
 });
 
-export default github;
+export default Link;

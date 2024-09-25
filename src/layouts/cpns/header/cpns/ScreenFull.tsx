@@ -3,14 +3,12 @@ import screenfull from 'screenfull';
 
 import Iconify from '@/components/icons/Iconify';
 import IButton from '@/components/IButton';
-import { useThemeToken } from '@/hooks/themeToken';
 
 function isFullScreen() {
   return !!document.fullscreenElement;
 }
 const ScreenFull = memo(() => {
   const [isFullscreen, setIsFullscreen] = useState(screenfull.isFullscreen);
-  const { colorTextSecondary } = useThemeToken();
 
   useEffect(() => {
     window.addEventListener(
@@ -28,12 +26,7 @@ const ScreenFull = memo(() => {
     }
   };
   return (
-    <IButton
-      style={{
-        color: colorTextSecondary,
-      }}
-      onClick={toggleFullScreen}
-    >
+    <IButton onClick={toggleFullScreen}>
       <div className="flex items-center justify-center">
         {isFullscreen ? (
           <>

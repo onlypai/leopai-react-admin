@@ -12,7 +12,7 @@ import { logoutAction } from '@/store/modules/user';
 import type { MenuProps } from 'antd';
 import { useTranslation } from 'react-i18next';
 
-const Avatar = memo(() => {
+const AccountDropdown = memo(() => {
   const navigate = useNavigate();
   const { t } = useTranslation();
   const dispatch = useAppDispatch();
@@ -48,4 +48,4 @@ const Avatar = memo(() => {
   );
 });
 
-export default Avatar;
+export default AccountDropdown;

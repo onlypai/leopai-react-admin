@@ -14,7 +14,7 @@ const customComponent: ThemeConfig['components'] = {
   },
 };
 // themeColor
-const colorPresets: {
+export const colorPresets: {
   [k in EThemeColor]: string;
 } = {
   c1: '#6c63ff',

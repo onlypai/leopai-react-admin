@@ -79,6 +79,9 @@ devDependencies:
   '@iconify/react':
     specifier: ^5.0.2
     version: registry.npmmirror.com/@iconify/react@5.0.2(react@18.3.1)
+  '@types/color':
+    specifier: ^3.0.6
+    version: registry.npmmirror.com/@types/color@3.0.6
   '@types/react':
     specifier: ^18.3.3
     version: registry.npmmirror.com/@types/react@18.3.3
@@ -1714,6 +1717,28 @@ packages:
     version: 7.20.6
     dependencies:
       '@babel/types': registry.npmmirror.com/@babel/types@7.25.2
+    dev: true
+
+  registry.npmmirror.com/@types/color-convert@2.0.3:
+    resolution: {integrity: sha512-2Q6wzrNiuEvYxVQqhh7sXM2mhIhvZR/Paq4FdsQkOMgWsCIkKvSGj8Le1/XalulrmgOzPMqNa0ix+ePY4hTrfg==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@types/color-convert/-/color-convert-2.0.3.tgz}
+    name: '@types/color-convert'
+    version: 2.0.3
+    dependencies:
+      '@types/color-name': registry.npmmirror.com/@types/color-name@1.1.4
+    dev: true
+
+  registry.npmmirror.com/@types/color-name@1.1.4:
+    resolution: {integrity: sha512-hulKeREDdLFesGQjl96+4aoJSHY5b2GRjagzzcqCfIrWhe5vkCqIvrLbqzBaI1q94Vg8DNJZZqTR5ocdWmWclg==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@types/color-name/-/color-name-1.1.4.tgz}
+    name: '@types/color-name'
+    version: 1.1.4
+    dev: true
+
+  registry.npmmirror.com/@types/color@3.0.6:
+    resolution: {integrity: sha512-NMiNcZFRUAiUUCCf7zkAelY8eV3aKqfbzyFQlXpPIEeoNDbsEHGpb854V3gzTsGKYj830I5zPuOwU/TP5/cW6A==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@types/color/-/color-3.0.6.tgz}
+    name: '@types/color'
+    version: 3.0.6
+    dependencies:
+      '@types/color-convert': registry.npmmirror.com/@types/color-convert@2.0.3
     dev: true
 
   registry.npmmirror.com/@types/conventional-commits-parser@5.0.0:

@@ -13,10 +13,11 @@ import Lang from './cpns/Lang';
 import AccountDropdown from './cpns/AccountDropdown';
 import BreadCrumb from './cpns/BreadCrumb';
 import ScreenFull from './cpns/ScreenFull';
+import Config from './cpns/config';
 
 const index = memo(() => {
   const { layout, breadCrumb } = useAppSelector((state) => state.settings, shallowEqual);
-  // const { colorBorderSecondary } = useThemeToken();
+  // const { colorBorderSecondary, colorBgElevated } = useThemeToken();
   const { HEADER_HEIGHT } = ESize;
 
   const isHorizontal = useMemo(() => layout === ELayout.Horizontal, [layout]);
@@ -25,16 +26,13 @@ const index = memo(() => {
     height: `${HEADER_HEIGHT}px`,
     // borderBottom: layout === ELayout.Horizontal ? `1px solid ${colorBorderSecondary}` : 'none',
     // borderBottom: `1px solid ${colorBorderSecondary}`,
+    // backgroundColor: colorBgElevated,
+    // borderRadius: '20px',
   };
   return (
     <header>
       {/* headerStyle中高度需要计算，计算之前有一个默认高度，这个过程会闪烁⭐，外部加一个header标签 */}
-      <div
-        style={headerStyle}
-        className={`w-full flex items-center justify-between px-10 box-border ${
-          !isHorizontal ? 'pl-0' : ''
-        }`}
-      >
+      <div style={headerStyle} className={`h-full flex-cb pr-5 ${!isHorizontal ? 'pl-0' : ''}`}>
         <div className="flex items-center">
           <div className={`${isHorizontal ? 'mr-6' : ''}`}>
             {!isHorizontal ? <Fold /> : <Logo />}
@@ -46,6 +44,7 @@ const index = memo(() => {
           <ScreenFull />
           <Lang />
           <Link />
+          <Config />
           <AccountDropdown />
         </div>
       </div>
