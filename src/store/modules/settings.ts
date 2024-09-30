@@ -28,7 +28,7 @@ const settingsSlice = createSlice({
     themeColor: themeColor || EThemeColor.C1, //主题色
     zoom: zoom ?? false, //内容区域宽度缩放
     breadCrumb: breadCrumb ?? true, //面包屑
-    tagsView: tagsView ?? true, //标签选项卡
+    tagsView: tagsView ?? false, //标签选项卡
   }),
   reducers: {
     setSettings: (state, action: PayloadAction<payloadType>) => {

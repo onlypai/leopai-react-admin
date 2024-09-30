@@ -4,26 +4,15 @@ import { StyleProvider } from '@ant-design/cssinjs';
 
 import { useAppSelector } from '@/hooks/redux';
 import { useI18n } from '@/hooks/i18n';
+import { COLORPRESETS } from '@/utils/config';
 
-import { ETheme, EThemeColor } from '@/enum';
+import { ETheme } from '@/enum';
 
 // Component Token
 const customComponent: ThemeConfig['components'] = {
   Menu: {
     itemColor: '#575757',
   },
-};
-// themeColor
-export const colorPresets: {
-  [k in EThemeColor]: string;
-} = {
-  c1: '#6c63ff',
-  c2: '#1677ff',
-  c3: '#42b883',
-  // #18a058绿色
-  c4: '#ff3d68',
-  c5: '#fda92d',
-  c6: '#ff235e',
 };
 
 type Props = {
@@ -39,7 +28,7 @@ const index = memo(({ children }: Props) => {
       theme={{
         algorithm,
         token: {
-          colorPrimary: colorPresets[themeColor],
+          colorPrimary: COLORPRESETS[themeColor],
         },
         components: { ...customComponent },
       }}

@@ -1,6 +1,6 @@
 import NProgress from 'nprogress';
 import 'nprogress/nprogress.css';
-import { useEffect, useState } from 'react';
+import { memo, useEffect, useState } from 'react';
 
 import { useThemeToken } from '@/hooks/themeToken';
 import { useLocation } from 'react-router-dom';
@@ -14,7 +14,7 @@ const changeNprogress = (colorPrimary: string) => {
   }
 };
 
-export default function ProgressBar() {
+const index = memo(() => {
   const { pathname } = useLocation();
   const { colorPrimary } = useThemeToken();
 
@@ -44,4 +44,6 @@ export default function ProgressBar() {
 
   // 控制进度条的显示、隐藏及样式调整。
   return null;
-}
+});
+
+export default index;

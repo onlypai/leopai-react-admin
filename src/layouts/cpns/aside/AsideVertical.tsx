@@ -1,35 +1,16 @@
 import { memo, useEffect, useState } from 'react';
 import Logo from '@/components/Logo';
 import { Menu, MenuProps } from 'antd';
-import styled from 'styled-components';
 
-import { useAppSelector } from '@/hooks/redux';
-import { useThemeToken } from '@/hooks/themeToken';
 import { usePermissionRoutes } from '@/hooks/formatRoute';
 import { menuFilter } from '@/utils';
-import { NAME } from '@/utils/config';
 import { MenuItem, useRouteToMenu } from '@/hooks/routeToMenu';
 import { useLocation, useMatches, useNavigate } from 'react-router-dom';
+import { VerticalWrapped } from './style';
 
-import { ELayout, ESize } from '@/enum';
+import { ESize } from '@/enum';
 
-const AntdWrapped = styled.span`
-  //submenu样式
-  .ant-menu-sub.ant-menu-inline {
-    background: none !important;
-  }
-  .ant-menu-inline-collapsed > .ant-menu-item,
-  .ant-menu-inline-collapsed > .ant-menu-submenu > .ant-menu-submenu-title {
-    padding: 0 10px;
-  }
-  .ant-menu-root {
-    padding: 0 20px !important;
-  }
-`;
-
-const AsideVertical = memo(() => {
-  const { layout } = useAppSelector((state) => state.settings);
-  const { colorPrimary } = useThemeToken();
+const index = memo(() => {
   const permissionRoutes = usePermissionRoutes();
   const { HEADER_HEIGHT } = ESize;
 
@@ -62,16 +43,9 @@ const AsideVertical = memo(() => {
   //md 尺寸以上显示
   return (
     <div className="hidden w-full h-full md:block">
-      <div className="flex items-center justify-center" style={{ height: HEADER_HEIGHT + 'px' }}>
-        <Logo />
-        {layout === ELayout.Vertical && (
-          <div className="text-xl ml-2 font-bold" style={{ color: colorPrimary }}>
-            {NAME}
-          </div>
-        )}
-      </div>
+      <Logo />
       <div className="overflow-y-hidden" style={{ height: `calc(100vh - ${HEADER_HEIGHT}px)` }}>
-        <AntdWrapped>
+        <VerticalWrapped>
           <Menu
             className="h-full"
             // 初始选中的菜单项 key 数组
@@ -94,10 +68,10 @@ const AsideVertical = memo(() => {
               background: 'inherit',
             }}
           />
-        </AntdWrapped>
+        </VerticalWrapped>
       </div>
     </div>
   );
 });
 
-export default AsideVertical;
+export default index;

@@ -9,7 +9,6 @@ import { useThemeToken } from '@/hooks/themeToken';
 import { usePermissionRoutes } from '@/hooks/formatRoute';
 
 import { menuFilter, flattenTree } from '@/utils';
-import { ESize } from '@/enum';
 
 interface ITabs {
   key: string;
@@ -18,7 +17,6 @@ interface ITabs {
 }
 
 const MultiTabs = memo(() => {
-  const { LABEL_TABS_HEIGHT } = ESize;
   const { colorBgLayout, colorBorderSecondary, colorPrimaryText, colorBgContainer } =
     useThemeToken();
   const { pathname } = useLocation();
@@ -175,7 +173,7 @@ const MultiTabs = memo(() => {
     );
   }, [items, activeKey, hoveringTabKey, tabItemStyle, navigate]);
   return (
-    <TabsWrapper $label_tabs_height={LABEL_TABS_HEIGHT}>
+    <TabsWrapper className="mb-2">
       <Tabs
         size="small"
         type="card"
@@ -188,9 +186,8 @@ const MultiTabs = memo(() => {
     // </div>
   );
 });
-const TabsWrapper = styled.div<{ $label_tabs_height: number }>`
+const TabsWrapper = styled.div`
   width: 100%;
-  height: ${(props) => props.$label_tabs_height}px;
   padding: 0 10px;
   .ant-tabs-card > .ant-tabs-nav .ant-tabs-tab {
     padding: 4px 16px;
