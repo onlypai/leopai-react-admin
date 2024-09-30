@@ -1,5 +1,4 @@
 import { memo, Suspense, useCallback, useEffect } from 'react';
-import { shallowEqual } from 'react-redux';
 import { ErrorBoundary } from 'react-error-boundary';
 import { useNavigate } from 'react-router-dom';
 
@@ -7,6 +6,7 @@ import { useAppSelector } from '@/hooks/redux';
 
 import ErrBoundaryFallback from '@/views/error/ErrBoundaryFallback';
 import Loading from '@/components/Loading';
+import { shallowEqual } from 'react-redux';
 
 type Props = {
   children: React.ReactNode;

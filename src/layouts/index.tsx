@@ -1,6 +1,5 @@
 import { memo, useMemo } from 'react';
 import { Layout } from 'antd';
-import { shallowEqual } from 'react-redux';
 
 import Nprogress from '@/components/Nprogress';
 import Main from './cpns/main';
@@ -15,7 +14,7 @@ import { ELayout, ESize } from '@/enum';
 const { Sider } = Layout;
 
 const index = memo(() => {
-  const { layout } = useAppSelector((state) => state.settings, shallowEqual);
+  const { layout } = useAppSelector((state) => state.settings);
   const { colorBorderSecondary, colorBgElevated } = useThemeToken(); //colorBgElevated背景色
   const { ASIDE_WIDTH, ASIDE_COLLAPSED_WIDTH } = ESize;
   const isHorzontical = useMemo(() => layout === ELayout.Horizontal, [layout]);

@@ -1,5 +1,4 @@
 import { memo, useMemo } from 'react';
-import { shallowEqual } from 'react-redux';
 
 import { useThemeToken } from '@/hooks/themeToken';
 import { ESize, ELayout } from '@/enum';
@@ -17,7 +16,7 @@ import BreadCrumb from '../header/cpns/BreadCrumb';
 import TagsView from '../tagsView';
 
 const index = memo(() => {
-  const { layout, breadCrumb, tagsView } = useAppSelector((state) => state.settings, shallowEqual);
+  const { layout, breadCrumb, tagsView } = useAppSelector((state) => state.settings);
   const { colorBorderSecondary } = useThemeToken();
   const { HEADER_HEIGHT } = ESize;
 

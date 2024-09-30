@@ -1,5 +1,4 @@
 import { memo, useEffect, useState } from 'react';
-import { shallowEqual } from 'react-redux';
 
 import IButton from '@/components/IButton';
 import Iconify from '@/components/icons/Iconify';
@@ -9,7 +8,7 @@ import { setSettings } from '@/store/modules/settings';
 import { ELayout } from '@/enum';
 
 const Fold = memo(() => {
-  const { layout } = useAppSelector((state) => state.settings, shallowEqual);
+  const { layout } = useAppSelector((state) => state.settings);
 
   const dispatch = useAppDispatch();
   const [collapsed, setCollapsed] = useState(false); //false未折叠

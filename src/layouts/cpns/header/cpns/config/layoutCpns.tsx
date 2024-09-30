@@ -1,9 +1,9 @@
 import { memo } from 'react';
-import { shallowEqual } from 'react-redux';
+
 import { useThemeToken } from '@/hooks/themeToken';
 import { useAppSelector } from '@/hooks/redux';
-
 import { useColor } from '@/hooks/color';
+
 import { ELayout } from '@/enum';
 
 type Props = {
@@ -11,7 +11,7 @@ type Props = {
 };
 
 const Vertical = memo(({ onClick }: Props) => {
-  const { layout } = useAppSelector((state) => state.settings, shallowEqual);
+  const { layout } = useAppSelector((state) => state.settings);
   const { colorPrimary, colorBorder, colorTextLabel } = useThemeToken();
   const { aplhaColor } = useColor();
   return (
@@ -54,7 +54,7 @@ const Vertical = memo(({ onClick }: Props) => {
 });
 
 const Mini = memo(({ onClick }: Props) => {
-  const { layout } = useAppSelector((state) => state.settings, shallowEqual);
+  const { layout } = useAppSelector((state) => state.settings);
   const { colorPrimary, colorBorder, colorTextLabel } = useThemeToken();
   const { aplhaColor } = useColor();
 
@@ -97,7 +97,7 @@ const Mini = memo(({ onClick }: Props) => {
 });
 
 const Horizontal = memo(({ onClick }: Props) => {
-  const { layout } = useAppSelector((state) => state.settings, shallowEqual);
+  const { layout } = useAppSelector((state) => state.settings);
   const { colorPrimary, colorBorder, colorTextLabel } = useThemeToken();
   const { aplhaColor } = useColor();
 

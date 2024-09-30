@@ -11,13 +11,14 @@ export interface ISettings {
   zoom: boolean;
   breadCrumb: boolean;
   tagsView: boolean;
+  watermark: boolean;
 }
 //payload类型
 export interface payloadType {
   key: keyof ISettings;
   value: ISettings[keyof ISettings];
 }
-const { theme, layout, themeColor, zoom, breadCrumb, tagsView } =
+const { theme, layout, themeColor, zoom, breadCrumb, tagsView, watermark } =
   localCache.getCache<ISettings>(EStorage.Settings) || {};
 
 const settingsSlice = createSlice({
@@ -29,6 +30,7 @@ const settingsSlice = createSlice({
     zoom: zoom ?? false, //内容区域宽度缩放
     breadCrumb: breadCrumb ?? true, //面包屑
     tagsView: tagsView ?? false, //标签选项卡
+    watermark: watermark ?? false, //水印
   }),
   reducers: {
     setSettings: (state, action: PayloadAction<payloadType>) => {

@@ -1,7 +1,6 @@
 import { memo, useState, useEffect } from 'react';
 import { Card, Drawer, Tooltip, Switch, Divider } from 'antd';
 import { CloseOutlined } from '@ant-design/icons';
-import { shallowEqual } from 'react-redux';
 
 import Iconify from '@/components/icons/Iconify';
 import IButton from '@/components/IButton';
@@ -23,9 +22,8 @@ const index = memo(() => {
   const [isFollowSys, setIsFollowSys] = useState(false);
   const { colorTextSecondary, colorPrimary } = useThemeToken();
 
-  const { theme, themeColor, zoom, breadCrumb, tagsView } = useAppSelector(
+  const { theme, themeColor, zoom, breadCrumb, tagsView, watermark } = useAppSelector(
     (state) => state.settings,
-    shallowEqual,
   );
 
   // 更新配置选项
@@ -203,6 +201,14 @@ const index = memo(() => {
                 size="small"
                 checked={tagsView}
                 onChange={(checked) => setStoreSettings({ key: 'tagsView', value: checked })}
+              />
+            </div>
+            <div className="flex-cb">
+              <div style={{ color: colorTextSecondary }}>Watermark</div>
+              <Switch
+                size="small"
+                checked={watermark}
+                onChange={(checked) => setStoreSettings({ key: 'watermark', value: checked })}
               />
             </div>
           </div>
