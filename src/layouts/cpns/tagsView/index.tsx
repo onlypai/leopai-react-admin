@@ -9,6 +9,8 @@ import { useThemeToken } from '@/hooks/themeToken';
 import { usePermissionRoutes } from '@/hooks/formatRoute';
 
 import { menuFilter, flattenTree } from '@/utils';
+import { ESize } from '@/enum';
+import { useColor } from '@/hooks/color';
 
 interface ITabs {
   key: string;
@@ -17,12 +19,13 @@ interface ITabs {
 }
 
 const MultiTabs = memo(() => {
-  const { colorBgLayout, colorBorderSecondary, colorPrimaryText, colorBgContainer } =
-    useThemeToken();
+  const { colorBorder, colorPrimaryText, colorBgContainer } = useThemeToken();
   const { pathname } = useLocation();
   const navigate = useNavigate();
   const permissionRoutes = usePermissionRoutes();
   const { t } = useTranslation();
+  const { aplhaColor } = useColor();
+  const { TAGS_VIEW_HEIGHT, LAYOUT_GAP } = ESize;
 
   const tabsWrapper = useRef<HTMLDivElement>(null);
   const [activeKey, setActiveKey] = useState('');
@@ -85,11 +88,11 @@ const MultiTabs = memo(() => {
       const isActive = tab.key === activeKey || tab.key === hoveringTabKey;
       const tabItem: CSSProperties = {
         width: 'auto',
-        border: `1px solid ${colorBorderSecondary}`,
-        backgroundColor: colorBgLayout,
-        borderRadius: '9px',
+        border: `1px solid ${aplhaColor(colorBorder, 0.6)}`,
+        // backgroundColor: colorBgLayout,
+        borderRadius: '10px',
         padding: '4px 16px',
-        margin: '0 2px',
+        margin: '0 2px 0 0',
         userSelect: 'none',
         cursor: 'pointer',
         transition: '.5s',
@@ -98,17 +101,11 @@ const MultiTabs = memo(() => {
       if (isActive) {
         tabItem.backgroundColor = colorBgContainer;
         tabItem.color = colorPrimaryText;
+        tabItem.border = '1px solid transparent';
       }
       return tabItem;
     },
-    [
-      activeKey,
-      hoveringTabKey,
-      colorBorderSecondary,
-      colorBgLayout,
-      colorPrimaryText,
-      colorBgContainer,
-    ],
+    [activeKey, hoveringTabKey, colorBorder, colorPrimaryText, colorBgContainer, aplhaColor],
   );
   const renderTabBar: TabsProps['renderTabBar'] = useCallback(() => {
     const closeTab = (tab: any, index: number) => {
@@ -127,7 +124,7 @@ const MultiTabs = memo(() => {
     return (
       <div
         ref={tabsWrapper}
-        className="flex items-center hide-scrollbar"
+        className="flex items-center"
         style={{ overflowX: 'auto', width: '100%' }}
       >
         {items.map((item, index) => {
@@ -173,7 +170,7 @@ const MultiTabs = memo(() => {
     );
   }, [items, activeKey, hoveringTabKey, tabItemStyle, navigate]);
   return (
-    <TabsWrapper className="mb-2">
+    <TabsWrapper style={{ height: TAGS_VIEW_HEIGHT + 'px', width: `calc(100% - ${LAYOUT_GAP}px)` }}>
       <Tabs
         size="small"
         type="card"
@@ -187,8 +184,6 @@ const MultiTabs = memo(() => {
   );
 });
 const TabsWrapper = styled.div`
-  width: 100%;
-  padding: 0 10px;
   .ant-tabs-card > .ant-tabs-nav .ant-tabs-tab {
     padding: 4px 16px;
   }
@@ -198,8 +193,8 @@ const TabsWrapper = styled.div`
   .ant-tabs .ant-tabs-tab .anticon {
     margin-right: 0;
   }
-
-  .hide-scrollbar::-webkit-scrollbar {
+  //隐藏滚动条
+  ::-webkit-scrollbar {
     display: none;
   }
 `;

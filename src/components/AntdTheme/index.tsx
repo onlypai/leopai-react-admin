@@ -1,19 +1,12 @@
 import { memo } from 'react';
-import { ConfigProvider, theme as antdTheme, ThemeConfig } from 'antd';
+import { ConfigProvider, theme as antdTheme } from 'antd';
 import { StyleProvider } from '@ant-design/cssinjs';
 
 import { useAppSelector } from '@/hooks/redux';
 import { useI18n } from '@/hooks/i18n';
-import { COLORPRESETS } from '@/utils/config';
+import { colorPresets, customComponent, themeTokenCover } from '@/utils/theme';
 
 import { ETheme } from '@/enum';
-
-// Component Token
-const customComponent: ThemeConfig['components'] = {
-  Menu: {
-    itemColor: '#575757',
-  },
-};
 
 type Props = {
   children: React.ReactNode;
@@ -28,9 +21,10 @@ const index = memo(({ children }: Props) => {
       theme={{
         algorithm,
         token: {
-          colorPrimary: COLORPRESETS[themeColor],
+          colorPrimary: colorPresets[themeColor],
+          ...themeTokenCover[theme],
         },
-        components: { ...customComponent },
+        components: { ...customComponent[theme] },
       }}
       locale={antdLocale}
     >

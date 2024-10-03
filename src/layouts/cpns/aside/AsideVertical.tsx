@@ -9,10 +9,12 @@ import { useLocation, useMatches, useNavigate } from 'react-router-dom';
 import { VerticalWrapped } from './style';
 
 import { ESize } from '@/enum';
+import { useThemeToken } from '@/hooks/themeToken';
 
 const index = memo(() => {
   const permissionRoutes = usePermissionRoutes();
-  const { HEADER_HEIGHT } = ESize;
+  const { colorBgContainer } = useThemeToken();
+  const { HEADER_HEIGHT, LAYOUT_GAP } = ESize;
 
   const routrToMenu = useRouteToMenu();
   const matches = useMatches();
@@ -44,7 +46,10 @@ const index = memo(() => {
   return (
     <div className="hidden w-full h-full md:block">
       <Logo />
-      <div className="overflow-y-hidden" style={{ height: `calc(100vh - ${HEADER_HEIGHT}px)` }}>
+      <div
+        className="flex justify-center overflow-y-hidden"
+        style={{ height: `calc(100vh - ${HEADER_HEIGHT}px - ${LAYOUT_GAP * 2}px)` }}
+      >
         <VerticalWrapped>
           <Menu
             className="h-full"
@@ -65,7 +70,7 @@ const index = memo(() => {
             items={menuList}
             style={{
               borderInlineEnd: 'none', //去除右边边框
-              background: 'inherit',
+              background: colorBgContainer,
             }}
           />
         </VerticalWrapped>

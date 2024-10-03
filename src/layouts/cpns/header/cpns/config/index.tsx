@@ -10,7 +10,7 @@ import { useColor } from '@/hooks/color';
 import { useThemeToken } from '@/hooks/themeToken';
 import { useAppDispatch, useAppSelector } from '@/hooks/redux';
 import { setSettings } from '@/store/modules/settings';
-import { COLORPRESETS } from '@/utils/config';
+import { colorPresets } from '@/utils/theme';
 
 import { ELayout, ETheme, EThemeColor } from '@/enum';
 import type { payloadType } from '@/store/modules/settings';
@@ -123,7 +123,7 @@ const index = memo(() => {
                 className="text-center w-[30%] cursor-pointer"
               >
                 <Iconify
-                  icon="bi:moon-stars-fill"
+                  icon="solar:moon-sleep-bold-duotone"
                   size="24"
                   color={!isFollowSys && theme === ETheme.Dark ? colorPrimary : ''}
                 />
@@ -162,7 +162,7 @@ const index = memo(() => {
             Theme Color
           </Divider>
           <div className="grid grid-cols-3 gap-x-4 gap-y-3">
-            {Object.entries(COLORPRESETS).map(([key, color]) => (
+            {Object.entries(colorPresets).map(([key, color]) => (
               <Card
                 key={key}
                 className="text-center w-full cursor-pointer"

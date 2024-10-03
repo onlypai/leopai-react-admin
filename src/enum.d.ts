@@ -40,6 +40,8 @@ export enum ESize {
   ASIDE_WIDTH = 280,
   ASIDE_COLLAPSED_WIDTH = 90,
   HEADER_HEIGHT = 70, //header
+  TAGS_VIEW_HEIGHT = 40, //tagsView
+  LAYOUT_GAP = 20,
 }
 export enum ELanguage {
   en_US = 'en_US',

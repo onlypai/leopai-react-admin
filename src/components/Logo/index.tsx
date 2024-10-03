@@ -12,13 +12,20 @@ interface Props {
   size?: string;
 }
 const index = memo(({ size = '4em' }: Props) => {
-  const { HEADER_HEIGHT } = ESize;
-  const { colorPrimary } = useThemeToken();
+  const { HEADER_HEIGHT, LAYOUT_GAP } = ESize;
+  const { colorPrimary, colorBgContainer } = useThemeToken();
   const { layout } = useAppSelector((state) => state.settings);
 
   return (
     <NavLink to="/">
-      <div className="flex items-center justify-center" style={{ height: HEADER_HEIGHT + 'px' }}>
+      <div
+        className="flex items-center justify-center"
+        style={{
+          height: HEADER_HEIGHT + 'px',
+          background: colorBgContainer,
+          marginBottom: layout !== ELayout.Horizontal ? LAYOUT_GAP + 'px' : 0,
+        }}
+      >
         <SvgIcon icon="logo" color={colorPrimary} size={size}></SvgIcon>
         {layout !== ELayout.Mini && (
           <div className="text-xl ml-2 font-bold text-nowrap" style={{ color: colorPrimary }}>
