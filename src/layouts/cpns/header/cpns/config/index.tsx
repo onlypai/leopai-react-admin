@@ -22,7 +22,7 @@ const index = memo(() => {
   const [isFollowSys, setIsFollowSys] = useState(false);
   const { colorTextSecondary, colorPrimary } = useThemeToken();
 
-  const { theme, themeColor, zoom, breadCrumb, tagsView, watermark } = useAppSelector(
+  const { theme, themeColor, breadCrumb, tagsView, watermark } = useAppSelector(
     (state) => state.settings,
   );
 
@@ -185,14 +185,6 @@ const index = memo(() => {
                 size="small"
                 checked={breadCrumb}
                 onChange={(checked) => setStoreSettings({ key: 'breadCrumb', value: checked })}
-              />
-            </div>
-            <div className="flex-cb">
-              <div style={{ color: colorTextSecondary }}>Zoom</div>
-              <Switch
-                size="small"
-                checked={zoom}
-                onChange={(checked) => setStoreSettings({ key: 'zoom', value: checked })}
               />
             </div>
             <div className="flex-cb">

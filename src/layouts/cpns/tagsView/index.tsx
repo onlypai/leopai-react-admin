@@ -10,7 +10,6 @@ import { usePermissionRoutes } from '@/hooks/formatRoute';
 
 import { menuFilter, flattenTree } from '@/utils';
 import { ESize } from '@/enum';
-import { useColor } from '@/hooks/color';
 
 interface ITabs {
   key: string;
@@ -19,13 +18,12 @@ interface ITabs {
 }
 
 const MultiTabs = memo(() => {
-  const { colorBorder, colorPrimaryText, colorBgContainer } = useThemeToken();
+  const { colorPrimaryText, colorBgContainer, colorBorderSecondary } = useThemeToken();
   const { pathname } = useLocation();
   const navigate = useNavigate();
   const permissionRoutes = usePermissionRoutes();
   const { t } = useTranslation();
-  const { aplhaColor } = useColor();
-  const { TAGS_VIEW_HEIGHT, LAYOUT_GAP } = ESize;
+  const { TAGS_VIEW_HEIGHT } = ESize;
 
   const tabsWrapper = useRef<HTMLDivElement>(null);
   const [activeKey, setActiveKey] = useState('');
@@ -88,11 +86,11 @@ const MultiTabs = memo(() => {
       const isActive = tab.key === activeKey || tab.key === hoveringTabKey;
       const tabItem: CSSProperties = {
         width: 'auto',
-        border: `1px solid ${aplhaColor(colorBorder, 0.6)}`,
-        // backgroundColor: colorBgLayout,
+        // border: `1px solid ${aplhaColor(colorBorder, 0.6)}`,
+        border: `1px solid ${colorBorderSecondary}`,
         borderRadius: '10px',
         padding: '4px 16px',
-        margin: '0 2px 0 0',
+        margin: '0 2px',
         userSelect: 'none',
         cursor: 'pointer',
         transition: '.5s',
@@ -101,11 +99,10 @@ const MultiTabs = memo(() => {
       if (isActive) {
         tabItem.backgroundColor = colorBgContainer;
         tabItem.color = colorPrimaryText;
-        tabItem.border = '1px solid transparent';
       }
       return tabItem;
     },
-    [activeKey, hoveringTabKey, colorBorder, colorPrimaryText, colorBgContainer, aplhaColor],
+    [activeKey, hoveringTabKey, colorPrimaryText, colorBgContainer, colorBorderSecondary],
   );
   const renderTabBar: TabsProps['renderTabBar'] = useCallback(() => {
     const closeTab = (tab: any, index: number) => {
@@ -170,7 +167,7 @@ const MultiTabs = memo(() => {
     );
   }, [items, activeKey, hoveringTabKey, tabItemStyle, navigate]);
   return (
-    <TabsWrapper style={{ height: TAGS_VIEW_HEIGHT + 'px', width: `calc(100% - ${LAYOUT_GAP}px)` }}>
+    <TabsWrapper style={{ height: TAGS_VIEW_HEIGHT + 'px', padding: '0 18px' }}>
       <Tabs
         size="small"
         type="card"

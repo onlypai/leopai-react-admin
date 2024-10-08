@@ -13,8 +13,8 @@ import { useThemeToken } from '@/hooks/themeToken';
 
 const index = memo(() => {
   const permissionRoutes = usePermissionRoutes();
-  const { colorBgContainer } = useThemeToken();
-  const { HEADER_HEIGHT, LAYOUT_GAP } = ESize;
+  const { colorBorderSecondary } = useThemeToken();
+  const { HEADER_HEIGHT } = ESize;
 
   const routrToMenu = useRouteToMenu();
   const matches = useMatches();
@@ -44,11 +44,16 @@ const index = memo(() => {
   };
   //md 尺寸以上显示
   return (
-    <div className="hidden w-full h-full md:block">
+    <div
+      className="hidden w-full h-full md:block"
+      style={{ borderRight: `1px solid ${colorBorderSecondary}` }}
+    >
       <Logo />
       <div
         className="flex justify-center overflow-y-hidden"
-        style={{ height: `calc(100vh - ${HEADER_HEIGHT}px - ${LAYOUT_GAP * 2}px)` }}
+        style={{
+          height: `calc(100vh - ${HEADER_HEIGHT}px`,
+        }}
       >
         <VerticalWrapped>
           <Menu
@@ -70,7 +75,7 @@ const index = memo(() => {
             items={menuList}
             style={{
               borderInlineEnd: 'none', //去除右边边框
-              background: colorBgContainer,
+              background: 'inherit',
             }}
           />
         </VerticalWrapped>

@@ -8,7 +8,6 @@ export interface ISettings {
   theme: ETheme;
   layout: ELayout;
   themeColor: EThemeColor;
-  zoom: boolean;
   breadCrumb: boolean;
   tagsView: boolean;
   watermark: boolean;
@@ -18,7 +17,7 @@ export interface payloadType {
   key: keyof ISettings;
   value: ISettings[keyof ISettings];
 }
-const { theme, layout, themeColor, zoom, breadCrumb, tagsView, watermark } =
+const { theme, layout, themeColor, breadCrumb, tagsView, watermark } =
   localCache.getCache<ISettings>(EStorage.Settings) || {};
 
 const settingsSlice = createSlice({
@@ -27,7 +26,6 @@ const settingsSlice = createSlice({
     theme: theme || ETheme.Light, //主题
     layout: layout || ELayout.Vertical, //布局
     themeColor: themeColor || EThemeColor.C1, //主题色
-    zoom: zoom ?? false, //内容区域宽度缩放
     breadCrumb: breadCrumb ?? true, //面包屑
     tagsView: tagsView ?? false, //标签选项卡
     watermark: watermark ?? false, //水印

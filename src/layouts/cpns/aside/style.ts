@@ -12,8 +12,9 @@ export const HorizontalWrapped = styled.div`
   }
 `;
 export const VerticalWrapped = styled.div`
-  width: calc(100% - 40px);
-  border-radius: 10px;
+  /* width: calc(100% - 40px); */
+  width: 100%;
+  /* border-radius: 10px; */
   overflow: hidden;
   //submenu样式
   .ant-menu-sub.ant-menu-inline {
@@ -24,7 +25,7 @@ export const VerticalWrapped = styled.div`
     padding: 0 10px;
   }
   .ant-menu-root {
-    /* padding: 0 20px !important; */
+    padding: 0 20px !important;
     /* width: calc(100% - 40px); */
   }
 `;

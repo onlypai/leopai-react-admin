@@ -7,13 +7,13 @@ export const AppWrapped = styled.div<{ $theme?: ETheme }>`
     height: 3px;
   }
 
-  ::-webkit-scrollbar-track {
+  /* ::-webkit-scrollbar-track {
     border-radius: 3px;
     background: ${(props) => (props.$theme === ETheme.Dark ? 'transparent' : '#d8d8e1')};
-  }
+  } */
 
   ::-webkit-scrollbar-thumb {
     border-radius: 3px;
-    background: ${(props) => (props.$theme === ETheme.Dark ? '#454545' : '#595959')};
+    background: ${(props) => (props.$theme === ETheme.Dark ? '#dcdcdd' : '#595959')};
   }
 `;

@@ -12,8 +12,8 @@ interface Props {
   size?: string;
 }
 const index = memo(({ size = '4em' }: Props) => {
-  const { HEADER_HEIGHT, LAYOUT_GAP } = ESize;
-  const { colorPrimary, colorBgContainer } = useThemeToken();
+  const { HEADER_HEIGHT } = ESize;
+  const { colorPrimary } = useThemeToken();
   const { layout } = useAppSelector((state) => state.settings);
 
   return (
@@ -22,8 +22,7 @@ const index = memo(({ size = '4em' }: Props) => {
         className="flex items-center justify-center"
         style={{
           height: HEADER_HEIGHT + 'px',
-          background: colorBgContainer,
-          marginBottom: layout !== ELayout.Horizontal ? LAYOUT_GAP + 'px' : 0,
+          background: 'inherit',
         }}
       >
         <SvgIcon icon="logo" color={colorPrimary} size={size}></SvgIcon>

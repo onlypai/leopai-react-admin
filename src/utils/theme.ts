@@ -20,20 +20,16 @@ export const customComponent: Record<ETheme, ThemeConfig['components']> = {
     Menu: {
       itemColor: '#575756',
     },
-    Card: { actionsBg: '#242b40' },
   },
   dark: {
     Menu: {
       itemColor: '#abacb0',
-    },
-    Card: {
-      actionsBg: '#0ec05c',
     },
   },
 };
 
 // antd token
 export const themeTokenCover: Record<ETheme, ThemeConfig['token']> = {
-  light: { colorBgContainer: '#fff', colorBgElevated: '#f5f6ff' }, //#f9faf5
+  light: { colorBgElevated: '#fff' }, //#f9faf5
   dark: { colorBgContainer: '#1b1b1b', colorBgElevated: '#161616' },
 };

@@ -31,7 +31,7 @@ const Fold = memo(() => {
     setCollapsed(!collapsed);
   };
   return (
-    <IButton onClick={toggleCollapsed} className="mx-5">
+    <IButton onClick={toggleCollapsed}>
       {collapsed ? (
         <Iconify icon="line-md:menu-unfold-right" size={20} />
       ) : (

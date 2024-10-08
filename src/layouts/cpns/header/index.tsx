@@ -13,25 +13,23 @@ import Config from './cpns/config';
 import AsideHorizontal from '../aside/AsideHorizontal';
 import Fold from '../header/cpns/Fold';
 import BreadCrumb from '../header/cpns/BreadCrumb';
+import TagsView from '../tagsView';
 
 const index = memo(() => {
-  const { layout, breadCrumb } = useAppSelector((state) => state.settings);
-  const { colorBgContainer } = useThemeToken();
-  const { HEADER_HEIGHT, LAYOUT_GAP } = ESize;
+  const { layout, breadCrumb, tagsView } = useAppSelector((state) => state.settings);
+  const { colorBorderSecondary } = useThemeToken();
+  const { HEADER_HEIGHT } = ESize;
 
   const isHorizontal = useMemo(() => layout === ELayout.Horizontal, [layout]);
 
   return (
     <header
       style={{
-        background: colorBgContainer,
-        marginBottom: LAYOUT_GAP + 'px',
+        background: 'inherit',
+        borderBottom: `1px solid ${colorBorderSecondary}`,
       }}
     >
-      <div
-        style={{ height: `${HEADER_HEIGHT}px` }}
-        className={`h-full flex-cb pr-5 ${!isHorizontal ? 'pl-0' : ''}`}
-      >
+      <div style={{ height: `${HEADER_HEIGHT}px` }} className={`h-full flex-cb px-2`}>
         <div className="flex items-center flex-1">
           {isHorizontal ? (
             <AsideHorizontal />
@@ -51,6 +49,7 @@ const index = memo(() => {
           <AccountDropdown />
         </div>
       </div>
+      {tagsView ? <TagsView /> : null}
     </header>
   );
 });
