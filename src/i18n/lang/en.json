@@ -3,7 +3,21 @@
   "menu": {
     "home": "Home"
   },
-  "common": {},
+  "common": {
+    "settings": {
+      "setting": "Settings",
+      "theme_mode": "Theme Mode",
+      "light": "Light",
+      "dark": "Dark",
+      "system": "System",
+      "layout": "Layout",
+      "theme_color": "Theme Color",
+      "page_display": "Page Display",
+      "breadCrumd": "BreadCrumd",
+      "tagsView": "TagsView",
+      "watermark": "Watermark"
+    }
+  },
   "login": {
     "login": "Login",
     "logout": "Logout",
@@ -12,6 +26,7 @@
     "remember": "Remember Me",
     "other_login": "Sign in with",
 
-    "logout_success": "Logout success"
+    "logout_success": "Logout success",
+    "login_success": "Login success"
   }
 }

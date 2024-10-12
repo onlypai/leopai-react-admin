@@ -5,6 +5,7 @@ import { useTranslation } from 'react-i18next';
 import { useLocation, useNavigate } from 'react-router-dom';
 
 import Iconify from '@/components/icons/Iconify';
+import IButton from '@/components/IButton';
 import { useThemeToken } from '@/hooks/themeToken';
 import { usePermissionRoutes } from '@/hooks/formatRoute';
 
@@ -16,6 +17,22 @@ interface ITabs {
   label: React.ReactNode;
   closable: boolean;
 }
+
+const TabsWrapper = styled.div`
+  .ant-tabs-card > .ant-tabs-nav .ant-tabs-tab {
+    padding: 4px 16px;
+  }
+  .ant-tabs-nav::before {
+    border-bottom: none !important;
+  }
+  .ant-tabs .ant-tabs-tab .anticon {
+    margin-right: 0;
+  }
+  //隐藏滚动条
+  ::-webkit-scrollbar {
+    display: none;
+  }
+`;
 
 const MultiTabs = memo(() => {
   const { colorPrimaryText, colorBgContainer, colorBorderSecondary } = useThemeToken();
@@ -104,6 +121,7 @@ const MultiTabs = memo(() => {
     },
     [activeKey, hoveringTabKey, colorPrimaryText, colorBgContainer, colorBorderSecondary],
   );
+
   const renderTabBar: TabsProps['renderTabBar'] = useCallback(() => {
     const closeTab = (tab: any, index: number) => {
       if (tab.key === activeKey) {
@@ -118,56 +136,64 @@ const MultiTabs = memo(() => {
       }
       setItems(items.filter((item) => item.key !== tab.key));
     };
+
     return (
-      <div
-        ref={tabsWrapper}
-        className="flex items-center"
-        style={{ overflowX: 'auto', width: '100%' }}
-      >
-        {items.map((item, index) => {
-          return (
-            <div
-              id={`tab-${index}`}
-              style={tabItemStyle(item)}
-              key={item.key}
-              onMouseEnter={() => {
-                if (item.key === activeKey) return;
-                setHoveringTabKey(item.key);
-              }}
-              onMouseLeave={() => setHoveringTabKey('')}
-              onClick={() => {
-                if (item.key === activeKey) return;
-                setActiveKey(item.key);
-                navigate(item.key);
-              }}
-            >
-              {/*  white-space: nowrap; 阻止文本换行 */}
-              <div className="flex items-center whitespace-nowrap">
-                <>{item.label}</>
-                <Iconify
-                  icon="ion:close-outline"
-                  size={18}
-                  className="cursor-pointer opacity-50"
-                  style={{
-                    display:
-                      (item.key !== activeKey && item.key !== hoveringTabKey) || items.length === 1
-                        ? 'none'
-                        : 'block',
-                  }}
-                  onClick={(e) => {
-                    e.stopPropagation();
-                    closeTab(item, index);
-                  }}
-                />
+      <div className="flex" style={{ height: TAGS_VIEW_HEIGHT + 'px' }}>
+        <div ref={tabsWrapper} className="flex items-center flex-1" style={{ overflowX: 'auto' }}>
+          {items.map((item, index) => {
+            return (
+              <div
+                id={`tab-${index}`}
+                style={tabItemStyle(item)}
+                key={item.key}
+                onMouseEnter={() => {
+                  if (item.key === activeKey) return;
+                  setHoveringTabKey(item.key);
+                }}
+                onMouseLeave={() => setHoveringTabKey('')}
+                onClick={() => {
+                  if (item.key === activeKey) return;
+                  setActiveKey(item.key);
+                  navigate(item.key);
+                }}
+              >
+                {/*  white-space: nowrap; 阻止文本换行 */}
+                <div className="flex items-center whitespace-nowrap">
+                  <>{item.label}</>
+                  <span
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      closeTab(item, index);
+                    }}
+                  >
+                    <Iconify
+                      icon="ion:close-outline"
+                      size={20}
+                      className="cursor-pointer opacity-50"
+                      style={{
+                        display:
+                          (item.key !== activeKey && item.key !== hoveringTabKey) ||
+                          items.length === 1
+                            ? 'none'
+                            : 'block',
+                      }}
+                    />
+                  </span>
+                </div>
               </div>
-            </div>
-          );
-        })}
+            );
+          })}
+        </div>
+        {[1].length > 0 ? (
+          <IButton className="h-hull">
+            <Iconify icon="ic:round-refresh" size={20}></Iconify>
+          </IButton>
+        ) : null}
       </div>
     );
-  }, [items, activeKey, hoveringTabKey, tabItemStyle, navigate]);
+  }, [items, activeKey, hoveringTabKey, tabItemStyle, navigate, TAGS_VIEW_HEIGHT]);
   return (
-    <TabsWrapper style={{ height: TAGS_VIEW_HEIGHT + 'px', padding: '0 18px' }}>
+    <TabsWrapper style={{ padding: '0 18px' }}>
       <Tabs
         size="small"
         type="card"
@@ -180,19 +206,5 @@ const MultiTabs = memo(() => {
     // </div>
   );
 });
-const TabsWrapper = styled.div`
-  .ant-tabs-card > .ant-tabs-nav .ant-tabs-tab {
-    padding: 4px 16px;
-  }
-  .ant-tabs-nav::before {
-    border-bottom: none !important;
-  }
-  .ant-tabs .ant-tabs-tab .anticon {
-    margin-right: 0;
-  }
-  //隐藏滚动条
-  ::-webkit-scrollbar {
-    display: none;
-  }
-`;
+
 export default MultiTabs;

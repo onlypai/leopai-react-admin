@@ -14,8 +14,10 @@ import { colorPresets } from '@/utils/theme';
 
 import { ELayout, ETheme, EThemeColor } from '@/enum';
 import type { payloadType } from '@/store/modules/settings';
+import { useTranslation } from 'react-i18next';
 
 const index = memo(() => {
+  const { t } = useTranslation();
   const dispatch = useAppDispatch();
   const { aplhaColor } = useColor();
   const [drawVisible, setDrawVisible] = useState(false);
@@ -85,7 +87,7 @@ const index = memo(() => {
   return (
     <>
       <Drawer
-        title="Settings"
+        title={t('common.settings.setting')}
         closable={false}
         width={340}
         onClose={() => setDrawVisible(false)}
@@ -102,10 +104,10 @@ const index = memo(() => {
       >
         <>
           <Divider variant="dashed" style={{ borderColor: aplhaColor(colorPrimary, 0.5) }} dashed>
-            Theme Mode
+            {t('common.settings.theme_mode')}
           </Divider>
           <div className="flex justify-between">
-            <Tooltip title="亮色">
+            <Tooltip title={t('common.settings.light')}>
               <Card
                 onClick={(e) => setThemeMode(e, false, ETheme.Light)}
                 className="text-center w-[30%] cursor-pointer"
@@ -117,7 +119,7 @@ const index = memo(() => {
                 />
               </Card>
             </Tooltip>
-            <Tooltip title="暗色">
+            <Tooltip title={t('common.settings.dark')}>
               <Card
                 onClick={(e) => setThemeMode(e, false, ETheme.Dark)}
                 className="text-center w-[30%] cursor-pointer"
@@ -129,7 +131,7 @@ const index = memo(() => {
                 />
               </Card>
             </Tooltip>
-            <Tooltip title="跟随系统">
+            <Tooltip title={t('common.settings.system')}>
               <Card
                 onClick={(e) => setThemeMode(e, true)}
                 className="text-center w-[30%] cursor-pointer"
@@ -145,7 +147,7 @@ const index = memo(() => {
         </>
         <>
           <Divider variant="dashed" style={{ borderColor: aplhaColor(colorPrimary, 0.5) }} dashed>
-            Layout
+            {t('common.settings.layout')}
           </Divider>
           <div className="flex justify-between">
             <Vertical
@@ -159,7 +161,7 @@ const index = memo(() => {
         </>
         <>
           <Divider variant="dashed" style={{ borderColor: aplhaColor(colorPrimary, 0.5) }} dashed>
-            Theme Color
+            {t('common.settings.theme_color')}
           </Divider>
           <div className="grid grid-cols-3 gap-x-4 gap-y-3">
             {Object.entries(colorPresets).map(([key, color]) => (
@@ -176,11 +178,11 @@ const index = memo(() => {
         </>
         <>
           <Divider variant="dashed" style={{ borderColor: aplhaColor(colorPrimary, 0.5) }} dashed>
-            Page Display
+            {t('common.settings.page_display')}
           </Divider>
           <div className="flex flex-col gap-2">
             <div className="flex-cb">
-              <div style={{ color: colorTextSecondary }}>BreadCrumb</div>
+              <div style={{ color: colorTextSecondary }}> {t('common.settings.breadCrumd')}</div>
               <Switch
                 size="small"
                 checked={breadCrumb}
@@ -188,7 +190,7 @@ const index = memo(() => {
               />
             </div>
             <div className="flex-cb">
-              <div style={{ color: colorTextSecondary }}>TagsView</div>
+              <div style={{ color: colorTextSecondary }}>{t('common.settings.tagsView')}</div>
               <Switch
                 size="small"
                 checked={tagsView}
@@ -196,7 +198,7 @@ const index = memo(() => {
               />
             </div>
             <div className="flex-cb">
-              <div style={{ color: colorTextSecondary }}>Watermark</div>
+              <div style={{ color: colorTextSecondary }}>{t('common.settings.watermark')}</div>
               <Switch
                 size="small"
                 checked={watermark}

@@ -6,12 +6,11 @@ export const colorPresets: {
   [k in EThemeColor]: string;
 } = {
   c1: '#6c63ff',
-  c2: '#1677ff',
-  c3: '#42b883',
-  // #18a058绿色
-  c4: '#ff3d68',
-  c5: '#fda92d',
-  c6: '#fe2c55', // #fe2c55红色
+  c2: '#f50057',
+  c3: '#06ad56',
+  c4: '#c084fc',
+  c5: '#f97316',
+  c6: '#3b82f6',
 };
 
 // Component Token

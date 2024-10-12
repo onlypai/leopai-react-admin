@@ -3,7 +3,21 @@
   "menu": {
     "home": "首页"
   },
-  "common": {},
+  "common": {
+    "settings": {
+      "setting": "设置",
+      "theme_mode": "主题模式",
+      "light": "亮色",
+      "dark": "暗色",
+      "system": "跟随系统",
+      "layout": "布局",
+      "theme_color": "主题颜色",
+      "page_display": "页面显示",
+      "breadCrumd": "面包屑",
+      "tagsView": "标签页",
+      "watermark": "水印"
+    }
+  },
   "login": {
     "login": "登录",
     "logout": "退出",

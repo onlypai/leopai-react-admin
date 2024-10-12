@@ -62,7 +62,7 @@ const index = memo(() => {
       //成功 失败结果是loginThunk中手动rejectWithValue抛出
       const { type } = await dispatch(loginThunk({ username, password }));
       if (type === 'user/login/fulfilled') {
-        message.success('登录成功');
+        message.success(t('login.login_success'));
         navigate('/', { replace: true });
       } else {
         // 使用接口返回信息
