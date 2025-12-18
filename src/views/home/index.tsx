@@ -2,6 +2,7 @@ import SvgIcon from '@/components/icons/SvgIcon';
 import { useThemeToken } from '@/hooks/themeToken';
 import { memo } from 'react';
 import { Col, Row, Avatar } from 'antd';
+import { avatar1, avatar2, avatar3, avatar4, avatar5 } from './config';
 
 const index = memo(() => {
   const { colorPrimary, colorFillQuaternary } = useThemeToken();
@@ -18,30 +19,30 @@ const index = memo(() => {
   ];
   const libraryList = [
     {
-      avatar: 'https://img.youhuipianyi.com/uploads/allimg/2020031310/shqmjtwucez.jpeg',
+      avatar: avatar1,
       title: 'James - Husky & Engaging',
       content:
         'A slightly husky and bassy voice with a standard American accent,in free societies, people are better able to ...',
     },
     {
-      avatar: 'https://img.youhuipianyi.com/uploads/allimg/2020031310/uxytrnhj0d4.jpeg',
+      avatar: avatar2,
       title: 'Benjamin - Deep, Warm, CalmingA ',
       content:
         'calm British, thirty-something, gentle and warm Middle Age American voice to soothe and rela...',
     },
     {
-      avatar: 'https://img.youhuipianyi.com/uploads/allimg/2020031310/pcstsxit411.jpeg',
+      avatar: avatar3,
       title: 'Danielle-Canadian Narrator',
       content:
         'Over the past several centuries, the world has seen the many ways in which an active free market spurs material and... ',
     },
     {
-      avatar: 'https://img.youhuipianyi.com/uploads/allimg/2020031310/04qr0f3cvba.jpeg',
+      avatar: avatar4,
       title: 'Archer',
       content: 'Conversational, calm British, thirty-something, perfect for an Al...',
     },
     {
-      avatar: 'https://img.youhuipianyi.com/uploads/allimg/2021051909/jdue1tnreb1.jpg',
+      avatar: avatar5,
       title: 'Mark -Natural Conversations',
       content:
         'A casual, young-adult speaking in a natural manner. We perfect most likely causal should look for an explanation...',
@@ -87,7 +88,7 @@ const index = memo(() => {
             {libraryList.map((item) => {
               return (
                 <div key={item.title} className="flex items-center mt-3">
-                  <Avatar size={64} src={item.avatar} />
+                  <Avatar size={64} src={item.avatar} style={{ flexShrink: 0 }} />
                   <div className="ml-4">
                     <div className="font-bold">{item.title}</div>
                     <div className="text-sm text-gray-500">{item.content}</div>

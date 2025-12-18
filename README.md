@@ -56,6 +56,9 @@ pnpm prettier
 # 提交代码
 pnpm commit
 ```
+### 测试账号
+- 账号：admin
+- 密码：admin123456
 
 ### 项目结构
 
