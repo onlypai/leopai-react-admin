@@ -1,7 +1,11 @@
 {
   "hello_world": "Hello World",
   "menu": {
-    "home": "Home"
+    "home": "Home",
+    "tools": "Tools",
+    "toolsChildren": {
+      "flow": "Flow"
+    }
   },
   "common": {
     "settings": {

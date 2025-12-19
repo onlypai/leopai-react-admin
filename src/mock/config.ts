@@ -32,6 +32,25 @@ const PERMISSIONS = [
       },
     ],
   },
+  {
+    id: '3365818801154644',
+    label: 'menu.tools',
+    parentId: '',
+    type: EPermission.CATALOGUE,
+    route: 'tools',
+    icon: 'codicon:copilot',
+    children: [
+      {
+        id: '8551082565892133',
+        label: 'menu.toolsChildren.flow',
+        parentId: '3365818801154644',
+        type: EPermission.MENU,
+        route: 'flow',
+        icon: 'codicon:bracket-error',
+        component: '/tools/flow/index.tsx',
+      },
+    ],
+  },
 ];
 
 export const USERS = [
