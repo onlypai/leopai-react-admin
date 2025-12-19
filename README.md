@@ -24,6 +24,10 @@
 
 ![image-20250413170532189](README.assets/image-20250413170532189.png)
 
+![Snipaste_2025-12-19_15-20-13](README.assets/Snipaste_2025-12-19_15-20-13.png)
+
+![Snipaste_2025-12-19_15-22-11](README.assets/Snipaste_2025-12-19_15-22-11.png)
+
 ### 特性
 
 - 📱 响应式布局
