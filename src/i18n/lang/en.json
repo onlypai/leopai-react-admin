@@ -4,7 +4,8 @@
     "home": "Home",
     "tools": "Tools",
     "toolsChildren": {
-      "flow": "Flow"
+      "flow": "Flow",
+      "jsonView": "JSON Formatter"
     }
   },
   "common": {

@@ -4,7 +4,8 @@
     "home": "首页",
     "tools": "工具",
     "toolsChildren": {
-      "flow": "流程图"
+      "flow": "流程图",
+      "jsonView": "JSON格式化"
     }
   },
   "common": {

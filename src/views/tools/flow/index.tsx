@@ -2,6 +2,7 @@ import { memo } from 'react';
 import { Excalidraw } from '@excalidraw/excalidraw';
 import '@excalidraw/excalidraw/index.css';
 
+//https://docs.excalidraw.com/
 const index = memo(() => {
   return (
     <div>
