@@ -1,5 +1,6 @@
 import { faker } from '@faker-js/faker';
 import { EPermission } from '@/enum';
+//https://icon-sets.iconify.design/  菜单图标
 
 const PERMISSIONS = [
   //首页
@@ -38,7 +39,7 @@ const PERMISSIONS = [
     parentId: '',
     type: EPermission.CATALOGUE,
     route: 'tools',
-    icon: 'codicon:copilot',
+    icon: 'streamline-plump:atom',
     children: [
       {
         id: '8551082565892133',
@@ -46,7 +47,7 @@ const PERMISSIONS = [
         parentId: '3365818801154644',
         type: EPermission.MENU,
         route: 'flow',
-        icon: 'codicon:bracket-error',
+        icon: 'streamline-plump:hotel-bed-5-remix',
         component: '/tools/flow/index.tsx',
       },
     ],
