@@ -6,6 +6,10 @@
     "toolsChildren": {
       "flow": "流程图",
       "jsonView": "JSON格式化"
+    },
+    "example": "案例",
+    "exampleChildren": {
+      "select": "拖拽选中"
     }
   },
   "common": {
