@@ -61,6 +61,25 @@ const PERMISSIONS = [
       },
     ],
   },
+  {
+    id: '3380925283154644',
+    label: 'menu.example',
+    parentId: '',
+    type: EPermission.CATALOGUE,
+    route: 'example',
+    icon: 'codicon:github',
+    children: [
+      {
+        id: '8553652567892133',
+        label: 'menu.exampleChildren.select',
+        parentId: '3380925283154644',
+        type: EPermission.MENU,
+        route: 'select',
+        icon: 'streamline-plump:hotel-bed-5-remix',
+        component: '/tools/viselect/index.tsx',
+      },
+    ],
+  },
 ];
 
 export const USERS = [

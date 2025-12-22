@@ -6,6 +6,10 @@
     "toolsChildren": {
       "flow": "Flow",
       "jsonView": "JSON Formatter"
+    },
+    "example": "Example",
+    "exampleChildren": {
+      "select": "Drag to select"
     }
   },
   "common": {

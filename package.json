@@ -17,6 +17,7 @@
     "@ant-design/icons": "^5.4.0",
     "@excalidraw/excalidraw": "^0.18.0",
     "@reduxjs/toolkit": "^2.2.7",
+    "@viselect/vanilla": "3.7.1",
     "antd": "^5.20.3",
     "axios": "^1.7.5",
     "color": "^4.2.3",
@@ -81,4 +82,3 @@
     ]
   }
 }
-
