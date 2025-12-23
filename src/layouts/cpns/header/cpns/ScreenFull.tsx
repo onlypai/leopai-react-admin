@@ -1,7 +1,7 @@
 import { memo, useEffect, useState } from 'react';
 import screenfull from 'screenfull';
 
-import Iconify from '@/components/icons/Iconify';
+import SvgIcon from '@/components/icons/SvgIcon';
 import IButton from '@/components/IButton';
 
 function isFullScreen() {
@@ -30,11 +30,11 @@ const ScreenFull = memo(() => {
       <div className="flex items-center justify-center">
         {isFullscreen ? (
           <>
-            <Iconify size={20} icon="material-symbols:zoom-in-map" />
+            <SvgIcon size={20} icon="material-symbols--zoom-in-map-rounded" />
           </>
         ) : (
           <>
-            <Iconify size={20} icon="material-symbols:zoom-out-map" />
+            <SvgIcon size={20} icon="material-symbols--zoom-out-map-rounded" />
           </>
         )}
       </div>

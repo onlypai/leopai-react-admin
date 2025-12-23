@@ -1,7 +1,7 @@
 import { memo, useEffect, useState } from 'react';
 
 import IButton from '@/components/IButton';
-import Iconify from '@/components/icons/Iconify';
+import SvgIcon from '@/components/icons/SvgIcon';
 import { useAppDispatch, useAppSelector } from '@/hooks/redux';
 import { setSettings } from '@/store/modules/settings';
 
@@ -33,9 +33,9 @@ const Fold = memo(() => {
   return (
     <IButton onClick={toggleCollapsed}>
       {collapsed ? (
-        <Iconify icon="line-md:menu-unfold-right" size={20} />
+        <SvgIcon icon="line-md--menu-unfold-right" size={20} />
       ) : (
-        <Iconify icon="line-md:menu-unfold-left" size={20} />
+        <SvgIcon icon="line-md--menu-unfold-left" size={20} />
       )}
     </IButton>
   );

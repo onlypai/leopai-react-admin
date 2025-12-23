@@ -2,7 +2,7 @@ import { useCallback } from 'react';
 import type { MenuProps } from 'antd';
 import { useTranslation } from 'react-i18next';
 
-import Iconify from '@/components/icons/Iconify';
+import SvgIcon from '@/components/icons/SvgIcon';
 import { AppRouteObject } from '@/router/types';
 
 export type MenuItem = Required<MenuProps>['items'][number] & {
@@ -23,7 +23,7 @@ export function useRouteToMenu() {
         const icon = meta?.icon;
         if (icon) {
           if (typeof icon === 'string') {
-            menuItem.icon = <Iconify icon={icon} size={22} />;
+            menuItem.icon = <SvgIcon icon={icon} size={22} />;
           } else {
             menuItem.icon = icon;
           }

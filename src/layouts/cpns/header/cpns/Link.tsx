@@ -1,7 +1,7 @@
 import { memo } from 'react';
 import { Dropdown } from 'antd';
 
-import Iconify from '@/components/icons/Iconify';
+import SvgIcon from '@/components/icons/SvgIcon';
 import IButton from '@/components/IButton';
 
 import { LINK_URLS } from '@/utils/config';
@@ -22,7 +22,7 @@ const Link = memo(() => {
     <Dropdown menu={{ items }}>
       <span>
         <IButton>
-          <Iconify size={20} icon="fa6-solid:link"></Iconify>
+          <SvgIcon size={20} icon="fa6-solid--link"></SvgIcon>
         </IButton>
       </span>
     </Dropdown>

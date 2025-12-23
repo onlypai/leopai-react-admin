@@ -10,7 +10,7 @@ const PERMISSIONS = [
     parentId: '',
     type: EPermission.MENU,
     route: 'home',
-    icon: 'ion:home',
+    icon: 'ion--home',
     component: '/home/index.tsx',
   },
   //测试页面
@@ -20,7 +20,7 @@ const PERMISSIONS = [
     parentId: '',
     type: EPermission.CATALOGUE,
     route: 'test',
-    icon: 'codicon:copilot',
+    icon: 'codicon--copilot',
     children: [
       {
         id: '8551082552692133',
@@ -28,7 +28,7 @@ const PERMISSIONS = [
         parentId: '3380918801154644',
         type: EPermission.MENU,
         route: 'testChild',
-        icon: 'solar:align-right-broken',
+        icon: 'solar--align-right-broken',
         component: '/test/testChild/index.tsx',
       },
     ],
@@ -39,7 +39,7 @@ const PERMISSIONS = [
     parentId: '',
     type: EPermission.CATALOGUE,
     route: 'tools',
-    icon: 'streamline-plump:atom',
+    icon: 'streamline-plump--atom-solid',
     children: [
       {
         id: '8551082565892133',
@@ -47,7 +47,7 @@ const PERMISSIONS = [
         parentId: '3365818801154644',
         type: EPermission.MENU,
         route: 'flow',
-        icon: 'streamline-plump:hotel-bed-5-remix',
+        icon: 'streamline-plump--hotel-bed-5-remix',
         component: '/tools/flow/index.tsx',
       },
       {
@@ -56,7 +56,7 @@ const PERMISSIONS = [
         parentId: '3365818801154644',
         type: EPermission.MENU,
         route: 'jsonView',
-        icon: 'mdi:code-json',
+        icon: 'mdi--code-json',
         component: '/tools/jsonView/index.tsx',
       },
     ],
@@ -67,7 +67,7 @@ const PERMISSIONS = [
     parentId: '',
     type: EPermission.CATALOGUE,
     route: 'example',
-    icon: 'codicon:github',
+    icon: 'solar--banknote-bold-duotone',
     children: [
       {
         id: '8553652567892133',
@@ -75,7 +75,7 @@ const PERMISSIONS = [
         parentId: '3380925283154644',
         type: EPermission.MENU,
         route: 'select',
-        icon: 'streamline-plump:hotel-bed-5-remix',
+        icon: 'solar--airbuds-remove-bold-duotone',
         component: '/tools/viselect/index.tsx',
       },
     ],

@@ -2,7 +2,7 @@ import { memo } from 'react';
 
 interface Props {
   icon: string;
-  size?: string;
+  size?: string | number;
   color?: string;
   className?: string;
   style?: React.CSSProperties;
