@@ -4,7 +4,7 @@ import { Tabs, TabsProps } from 'antd';
 import { useTranslation } from 'react-i18next';
 import { useLocation, useNavigate } from 'react-router-dom';
 
-import Iconify from '@/components/icons/Iconify';
+import SvgIcon from '@/components/icons/SvgIcon';
 import IButton from '@/components/IButton';
 import { useThemeToken } from '@/hooks/themeToken';
 import { usePermissionRoutes } from '@/hooks/formatRoute';
@@ -166,8 +166,8 @@ const MultiTabs = memo(() => {
                       closeTab(item, index);
                     }}
                   >
-                    <Iconify
-                      icon="ion:close-outline"
+                    <SvgIcon
+                      icon="ion--close-outline"
                       size={20}
                       className="cursor-pointer opacity-50"
                       style={{
@@ -186,7 +186,7 @@ const MultiTabs = memo(() => {
         </div>
         {[1].length > 0 ? (
           <IButton className="h-hull">
-            <Iconify icon="ic:round-refresh" size={20}></Iconify>
+            <SvgIcon icon="ic--round-refresh" size={20}></SvgIcon>
           </IButton>
         ) : null}
       </div>

@@ -1,7 +1,7 @@
 import { memo } from 'react';
 import { Dropdown } from 'antd';
 
-import Iconify from '@/components/icons/Iconify';
+import SvgIcon from '@/components/icons/SvgIcon';
 import IButton from '@/components/IButton';
 
 import { langList, useI18n } from '@/hooks/i18n';
@@ -22,7 +22,7 @@ const Lang = memo(() => {
     <Dropdown menu={{ items, selectable: true, defaultSelectedKeys: [lang] }}>
       <span>
         <IButton>
-          <Iconify size={20} icon="fa6-solid:language"></Iconify>
+          <SvgIcon size={20} icon="fa6-solid--language" />
         </IButton>
       </span>
     </Dropdown>

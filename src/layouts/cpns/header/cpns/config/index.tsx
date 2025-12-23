@@ -2,7 +2,7 @@ import { memo, useState, useEffect } from 'react';
 import { Card, Drawer, Tooltip, Switch, Divider } from 'antd';
 import { CloseOutlined } from '@ant-design/icons';
 
-import Iconify from '@/components/icons/Iconify';
+import SvgIcon from '@/components/icons/SvgIcon';
 import IButton from '@/components/IButton';
 import { Vertical, Mini, Horizontal } from './layoutCpns';
 
@@ -112,8 +112,8 @@ const index = memo(() => {
                 onClick={(e) => setThemeMode(e, false, ETheme.Light)}
                 className="text-center w-[30%] cursor-pointer"
               >
-                <Iconify
-                  icon="ph:sun-bold"
+                <SvgIcon
+                  icon="ph--sun-bold"
                   size="24"
                   color={!isFollowSys && theme === ETheme.Light ? colorPrimary : ''}
                 />
@@ -124,8 +124,8 @@ const index = memo(() => {
                 onClick={(e) => setThemeMode(e, false, ETheme.Dark)}
                 className="text-center w-[30%] cursor-pointer"
               >
-                <Iconify
-                  icon="solar:moon-sleep-bold-duotone"
+                <SvgIcon
+                  icon="solar--moon-sleep-bold-duotone"
                   size="24"
                   color={!isFollowSys && theme === ETheme.Dark ? colorPrimary : ''}
                 />
@@ -136,8 +136,8 @@ const index = memo(() => {
                 onClick={(e) => setThemeMode(e, true)}
                 className="text-center w-[30%] cursor-pointer"
               >
-                <Iconify
-                  icon="icon-park-twotone:system"
+                <SvgIcon
+                  icon="icon-park-twotone--system"
                   size="24"
                   color={isFollowSys ? colorPrimary : ''}
                 />
@@ -171,7 +171,7 @@ const index = memo(() => {
                 style={{ backgroundColor: themeColor === key ? aplhaColor(color, 0.2) : '' }}
                 onClick={() => setStoreSettings({ key: 'themeColor', value: key as EThemeColor })}
               >
-                <Iconify icon="ion:color-palette" size="24" color={color} />
+                <SvgIcon icon="ion--color-palette" size="24" color={color} />
               </Card>
             ))}
           </div>
@@ -209,7 +209,7 @@ const index = memo(() => {
         </>
       </Drawer>
       <IButton onClick={() => setDrawVisible(true)}>
-        <Iconify size={22} icon="ion:settings-sharp"></Iconify>
+        <SvgIcon size={20} icon="ion--settings-sharp" />
       </IButton>
     </>
   );

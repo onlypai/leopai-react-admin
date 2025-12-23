@@ -23,8 +23,47 @@ export default defineConfig({
   server: {
     open: true,
     host: true,
+    watch: {
+      // 减少监视的文件数量
+      ignored: ['**/node_modules/**', '**/.git/**'],
+    },
   },
   build: {
+    sourcemap: false,
     target: 'esnext',
+    minify: 'terser',
+    terserOptions: {
+      compress: {
+        drop_console: true,
+        drop_debugger: true,
+      },
+    },
+    chunkSizeWarningLimit: 2000,
+    rollupOptions: {
+      output: {
+        manualChunks(id) {
+          // 将大依赖包拆分
+          if (id.includes('node_modules')) {
+            if (id.includes('react')) {
+              return 'react';
+            }
+            if (id.includes('antd')) {
+              return 'antd';
+            }
+            if (id.includes('lodash')) {
+              return 'lodash';
+            }
+            return 'vendor';
+          }
+        },
+        chunkFileNames: 'assets/js/[name]-[hash].js',
+        entryFileNames: 'assets/js/[name]-[hash].js',
+        assetFileNames: 'assets/[ext]/[name]-[hash].[ext]',
+      },
+    },
+
+    // 启用更高效的构建模式
+    cssCodeSplit: true,
+    reportCompressedSize: false,
   },
 });
