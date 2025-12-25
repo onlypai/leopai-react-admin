@@ -8,6 +8,7 @@ export const Wrapper = styled.div<{ $style: { colorPrimary: string } }>`
     height: 500px;
     overflow-y: scroll;
     margin: 15px 0;
+    border-radius: 4px;
   }
   /* 选择区域样式 */
   .selection-area {

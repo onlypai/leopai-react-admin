@@ -14,6 +14,6 @@ export const AppWrapped = styled.div<{ $theme?: ETheme }>`
 
   ::-webkit-scrollbar-thumb {
     border-radius: 3px;
-    background: ${(props) => (props.$theme === ETheme.Dark ? '#dcdcdd' : '#595959')};
+    background: ${(props) => (props.$theme === ETheme.Dark ? '#c0c0c0' : '#8b8b8b')};
   }
 `;
