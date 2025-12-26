@@ -5,7 +5,8 @@ import { useThemeToken } from '@/hooks/themeToken';
 import { Wrapper } from './style';
 
 export const App = () => {
-  const { colorPrimary } = useThemeToken();
+  const { colorPrimary, colorTextQuaternary } = useThemeToken();
+
   const container = useRef<HTMLDivElement>(null);
   const instance = useRef<SelectionArea | undefined>();
   const [selected, setSelected] = useState<Set<number>>(() => new Set());
@@ -74,7 +75,12 @@ export const App = () => {
   return (
     <Wrapper $style={{ colorPrimary }}>
       单选，Ctrl 多选，Shift 连选，拖拽框多选，点击空白取消选择
-      <div ref={container} className="container" onMouseDown={handleBlankClick}>
+      <div
+        ref={container}
+        className="container"
+        onMouseDown={handleBlankClick}
+        style={{ borderColor: colorTextQuaternary }}
+      >
         {new Array(20).fill(0).map((_, index) => (
           <div
             className={selected.has(index) ? 'selected selectable' : 'selectable'}

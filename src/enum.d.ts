@@ -16,6 +16,7 @@ export enum EStorage {
   Permissions = 'permissions',
   Settings = 'settings',
   I18N = 'i18nextLng',
+  FlowData = 'flowData',
 }
 
 export enum ETheme {
