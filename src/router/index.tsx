@@ -1,6 +1,6 @@
 // import { memo } from 'react';
 import {
-  createBrowserRouter,
+  createHashRouter,
   RouterProvider,
   RouteObject,
   Outlet,
@@ -62,6 +62,6 @@ export default function Router() {
       element: <Navigate to="/404" replace />,
     },
   ];
-  const router = createBrowserRouter(routes as unknown as RouteObject[]);
+  const router = createHashRouter(routes as unknown as RouteObject[]);
   return <RouterProvider router={router} />;
 }
