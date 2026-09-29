@@ -32,4 +32,7 @@ createRoot(document.getElementById('root') as HTMLElement).render(
 //注册 Service Worker 并开始请求拦截。
 await worder.start({
   onUnhandledRequest: 'bypass', //决定如何响应未处理的请求(即那些没有匹配请求处理程序的请求) 不打印
+  serviceWorker: {
+    url: `${import.meta.env.BASE_URL}mockServiceWorker.js`,
+  },
 });
