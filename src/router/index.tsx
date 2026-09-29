@@ -16,7 +16,7 @@ import ErrBoundary from './ErrBoundary';
 
 import { AppRouteObject } from './types';
 
-const Login = lazy(() => import('@/views/login'));
+const Login = lazy(() => import('@/views/Login'));
 const Page404 = lazy(() => import('@/views/error/404'));
 const Page403 = lazy(() => import('@/views/error/403'));
 
