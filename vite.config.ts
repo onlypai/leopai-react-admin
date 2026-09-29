@@ -5,7 +5,8 @@ import { resolve } from 'path'; //3.1.x不支持commonJS
 import { fileURLToPath } from 'url';
 
 // https://vitejs.dev/config/
-export default defineConfig({
+export default defineConfig(({ mode }) => ({
+  base: mode === 'production' ? '/leopai-react-admin/' : '/',
   plugins: [
     react(),
     createSvgIconsPlugin({
@@ -66,4 +67,4 @@ export default defineConfig({
     cssCodeSplit: true,
     reportCompressedSize: false,
   },
-});
+}));
